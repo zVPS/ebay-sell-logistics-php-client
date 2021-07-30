@@ -45,7 +45,7 @@ use \Ebay\Sell\Logistics\ObjectSerializer;
  */
 class Order implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -184,8 +184,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['channel'] = $data['channel'] ?? null;
-        $this->container['order_id'] = $data['order_id'] ?? null;
+        $this->container['channel'] = isset($data['channel']) ? $data['channel'] : null;
+        $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
     }
 
     /**
@@ -280,7 +280,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

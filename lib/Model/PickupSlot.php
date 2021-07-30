@@ -45,7 +45,7 @@ use \Ebay\Sell\Logistics\ObjectSerializer;
  */
 class PickupSlot implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -194,10 +194,10 @@ class PickupSlot implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['pickup_slot_end_time'] = $data['pickup_slot_end_time'] ?? null;
-        $this->container['pickup_slot_id'] = $data['pickup_slot_id'] ?? null;
-        $this->container['pickup_slot_start_time'] = $data['pickup_slot_start_time'] ?? null;
-        $this->container['pickup_slot_time_zone'] = $data['pickup_slot_time_zone'] ?? null;
+        $this->container['pickup_slot_end_time'] = isset($data['pickup_slot_end_time']) ? $data['pickup_slot_end_time'] : null;
+        $this->container['pickup_slot_id'] = isset($data['pickup_slot_id']) ? $data['pickup_slot_id'] : null;
+        $this->container['pickup_slot_start_time'] = isset($data['pickup_slot_start_time']) ? $data['pickup_slot_start_time'] : null;
+        $this->container['pickup_slot_time_zone'] = isset($data['pickup_slot_time_zone']) ? $data['pickup_slot_time_zone'] : null;
     }
 
     /**
@@ -340,7 +340,7 @@ class PickupSlot implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

@@ -45,7 +45,7 @@ use \Ebay\Sell\Logistics\ObjectSerializer;
  */
 class CreateShipmentFromQuoteRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -204,12 +204,12 @@ class CreateShipmentFromQuoteRequest implements ModelInterface, ArrayAccess, \Js
      */
     public function __construct(array $data = null)
     {
-        $this->container['additional_options'] = $data['additional_options'] ?? null;
-        $this->container['label_custom_message'] = $data['label_custom_message'] ?? null;
-        $this->container['label_size'] = $data['label_size'] ?? null;
-        $this->container['rate_id'] = $data['rate_id'] ?? null;
-        $this->container['return_to'] = $data['return_to'] ?? null;
-        $this->container['shipping_quote_id'] = $data['shipping_quote_id'] ?? null;
+        $this->container['additional_options'] = isset($data['additional_options']) ? $data['additional_options'] : null;
+        $this->container['label_custom_message'] = isset($data['label_custom_message']) ? $data['label_custom_message'] : null;
+        $this->container['label_size'] = isset($data['label_size']) ? $data['label_size'] : null;
+        $this->container['rate_id'] = isset($data['rate_id']) ? $data['rate_id'] : null;
+        $this->container['return_to'] = isset($data['return_to']) ? $data['return_to'] : null;
+        $this->container['shipping_quote_id'] = isset($data['shipping_quote_id']) ? $data['shipping_quote_id'] : null;
     }
 
     /**
@@ -400,7 +400,7 @@ class CreateShipmentFromQuoteRequest implements ModelInterface, ArrayAccess, \Js
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

@@ -45,7 +45,7 @@ use \Ebay\Sell\Logistics\ObjectSerializer;
  */
 class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -239,19 +239,19 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['cancellation'] = $data['cancellation'] ?? null;
-        $this->container['creation_date'] = $data['creation_date'] ?? null;
-        $this->container['label_custom_message'] = $data['label_custom_message'] ?? null;
-        $this->container['label_download_url'] = $data['label_download_url'] ?? null;
-        $this->container['label_size'] = $data['label_size'] ?? null;
-        $this->container['orders'] = $data['orders'] ?? null;
-        $this->container['package_specification'] = $data['package_specification'] ?? null;
-        $this->container['rate'] = $data['rate'] ?? null;
-        $this->container['return_to'] = $data['return_to'] ?? null;
-        $this->container['ship_from'] = $data['ship_from'] ?? null;
-        $this->container['shipment_id'] = $data['shipment_id'] ?? null;
-        $this->container['shipment_tracking_number'] = $data['shipment_tracking_number'] ?? null;
-        $this->container['ship_to'] = $data['ship_to'] ?? null;
+        $this->container['cancellation'] = isset($data['cancellation']) ? $data['cancellation'] : null;
+        $this->container['creation_date'] = isset($data['creation_date']) ? $data['creation_date'] : null;
+        $this->container['label_custom_message'] = isset($data['label_custom_message']) ? $data['label_custom_message'] : null;
+        $this->container['label_download_url'] = isset($data['label_download_url']) ? $data['label_download_url'] : null;
+        $this->container['label_size'] = isset($data['label_size']) ? $data['label_size'] : null;
+        $this->container['orders'] = isset($data['orders']) ? $data['orders'] : null;
+        $this->container['package_specification'] = isset($data['package_specification']) ? $data['package_specification'] : null;
+        $this->container['rate'] = isset($data['rate']) ? $data['rate'] : null;
+        $this->container['return_to'] = isset($data['return_to']) ? $data['return_to'] : null;
+        $this->container['ship_from'] = isset($data['ship_from']) ? $data['ship_from'] : null;
+        $this->container['shipment_id'] = isset($data['shipment_id']) ? $data['shipment_id'] : null;
+        $this->container['shipment_tracking_number'] = isset($data['shipment_tracking_number']) ? $data['shipment_tracking_number'] : null;
+        $this->container['ship_to'] = isset($data['ship_to']) ? $data['ship_to'] : null;
     }
 
     /**
@@ -610,7 +610,7 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

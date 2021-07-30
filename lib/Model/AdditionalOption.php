@@ -45,7 +45,7 @@ use \Ebay\Sell\Logistics\ObjectSerializer;
  */
 class AdditionalOption implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -184,8 +184,8 @@ class AdditionalOption implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['additional_cost'] = $data['additional_cost'] ?? null;
-        $this->container['option_type'] = $data['option_type'] ?? null;
+        $this->container['additional_cost'] = isset($data['additional_cost']) ? $data['additional_cost'] : null;
+        $this->container['option_type'] = isset($data['option_type']) ? $data['option_type'] : null;
     }
 
     /**
@@ -280,7 +280,7 @@ class AdditionalOption implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

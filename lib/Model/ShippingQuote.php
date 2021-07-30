@@ -45,7 +45,7 @@ use \Ebay\Sell\Logistics\ObjectSerializer;
  */
 class ShippingQuote implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -219,15 +219,15 @@ class ShippingQuote implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['creation_date'] = $data['creation_date'] ?? null;
-        $this->container['expiration_date'] = $data['expiration_date'] ?? null;
-        $this->container['orders'] = $data['orders'] ?? null;
-        $this->container['package_specification'] = $data['package_specification'] ?? null;
-        $this->container['rates'] = $data['rates'] ?? null;
-        $this->container['ship_from'] = $data['ship_from'] ?? null;
-        $this->container['shipping_quote_id'] = $data['shipping_quote_id'] ?? null;
-        $this->container['ship_to'] = $data['ship_to'] ?? null;
-        $this->container['warnings'] = $data['warnings'] ?? null;
+        $this->container['creation_date'] = isset($data['creation_date']) ? $data['creation_date'] : null;
+        $this->container['expiration_date'] = isset($data['expiration_date']) ? $data['expiration_date'] : null;
+        $this->container['orders'] = isset($data['orders']) ? $data['orders'] : null;
+        $this->container['package_specification'] = isset($data['package_specification']) ? $data['package_specification'] : null;
+        $this->container['rates'] = isset($data['rates']) ? $data['rates'] : null;
+        $this->container['ship_from'] = isset($data['ship_from']) ? $data['ship_from'] : null;
+        $this->container['shipping_quote_id'] = isset($data['shipping_quote_id']) ? $data['shipping_quote_id'] : null;
+        $this->container['ship_to'] = isset($data['ship_to']) ? $data['ship_to'] : null;
+        $this->container['warnings'] = isset($data['warnings']) ? $data['warnings'] : null;
     }
 
     /**
@@ -490,7 +490,7 @@ class ShippingQuote implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

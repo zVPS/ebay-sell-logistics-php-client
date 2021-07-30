@@ -45,7 +45,7 @@ use \Ebay\Sell\Logistics\ObjectSerializer;
  */
 class ShipmentCancellation implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -184,8 +184,8 @@ class ShipmentCancellation implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(array $data = null)
     {
-        $this->container['cancellation_requested_date'] = $data['cancellation_requested_date'] ?? null;
-        $this->container['cancellation_status'] = $data['cancellation_status'] ?? null;
+        $this->container['cancellation_requested_date'] = isset($data['cancellation_requested_date']) ? $data['cancellation_requested_date'] : null;
+        $this->container['cancellation_status'] = isset($data['cancellation_status']) ? $data['cancellation_status'] : null;
     }
 
     /**
@@ -280,7 +280,7 @@ class ShipmentCancellation implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

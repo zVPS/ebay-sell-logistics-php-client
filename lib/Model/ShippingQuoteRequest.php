@@ -45,7 +45,7 @@ use \Ebay\Sell\Logistics\ObjectSerializer;
  */
 class ShippingQuoteRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -194,10 +194,10 @@ class ShippingQuoteRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(array $data = null)
     {
-        $this->container['orders'] = $data['orders'] ?? null;
-        $this->container['package_specification'] = $data['package_specification'] ?? null;
-        $this->container['ship_from'] = $data['ship_from'] ?? null;
-        $this->container['ship_to'] = $data['ship_to'] ?? null;
+        $this->container['orders'] = isset($data['orders']) ? $data['orders'] : null;
+        $this->container['package_specification'] = isset($data['package_specification']) ? $data['package_specification'] : null;
+        $this->container['ship_from'] = isset($data['ship_from']) ? $data['ship_from'] : null;
+        $this->container['ship_to'] = isset($data['ship_to']) ? $data['ship_to'] : null;
     }
 
     /**
@@ -340,7 +340,7 @@ class ShippingQuoteRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**
