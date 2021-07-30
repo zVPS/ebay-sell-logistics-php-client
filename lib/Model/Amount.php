@@ -1,11 +1,11 @@
 <?php
 /**
- * AdditionalOption
+ * Amount
  *
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Logistics
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -29,30 +29,30 @@
 namespace Ebay\Sell\Logistics\Model;
 
 use \ArrayAccess;
-use \Ebay\Sell\ObjectSerializer;
+use \Ebay\Sell\Logistics\ObjectSerializer;
 
 /**
- * AdditionalOption Class Doc Comment
+ * Amount Class Doc Comment
  *
  * @category Class
- * @description This complex type contains information about a shipping option that can be purchased in addition to the base shipping cost of a recommended rate. Additional options for each rate are defined, named, and offered by the selected shipping carrier. Examples include shipping insurance or the requirement for a recipient signature.
- * @package  Ebay\Sell
+ * @description A complex type that describes the value of a monetary amount as represented by a global currency.
+ * @package  Ebay\Sell\Logistics
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class AdditionalOption implements ModelInterface, ArrayAccess, \JsonSerializable
+class Amount implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $openAPIModelName = 'AdditionalOption';
+    protected static $openAPIModelName = 'Amount';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,8 +60,8 @@ class AdditionalOption implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'additional_cost' => '\Ebay\Sell\Logistics\Model\Amount',
-        'option_type' => 'string'
+        'currency' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -72,8 +72,8 @@ class AdditionalOption implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'additional_cost' => null,
-        'option_type' => null
+        'currency' => null,
+        'value' => null
     ];
 
     /**
@@ -103,8 +103,8 @@ class AdditionalOption implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'additional_cost' => 'additionalCost',
-        'option_type' => 'optionType'
+        'currency' => 'currency',
+        'value' => 'value'
     ];
 
     /**
@@ -113,8 +113,8 @@ class AdditionalOption implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'additional_cost' => 'setAdditionalCost',
-        'option_type' => 'setOptionType'
+        'currency' => 'setCurrency',
+        'value' => 'setValue'
     ];
 
     /**
@@ -123,8 +123,8 @@ class AdditionalOption implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'additional_cost' => 'getAdditionalCost',
-        'option_type' => 'getOptionType'
+        'currency' => 'getCurrency',
+        'value' => 'getValue'
     ];
 
     /**
@@ -184,8 +184,8 @@ class AdditionalOption implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['additional_cost'] = isset($data['additional_cost']) ? $data['additional_cost'] : null;
-        $this->container['option_type'] = isset($data['option_type']) ? $data['option_type'] : null;
+        $this->container['currency'] = $data['currency'] ?? null;
+        $this->container['value'] = $data['value'] ?? null;
     }
 
     /**
@@ -213,49 +213,49 @@ class AdditionalOption implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets additional_cost
+     * Gets currency
      *
-     * @return \Ebay\Sell\Logistics\Model\Amount|null
+     * @return string|null
      */
-    public function getAdditionalCost()
+    public function getCurrency()
     {
-        return $this->container['additional_cost'];
+        return $this->container['currency'];
     }
 
     /**
-     * Sets additional_cost
+     * Sets currency
      *
-     * @param \Ebay\Sell\Logistics\Model\Amount|null $additional_cost additional_cost
+     * @param string|null $currency The base currency applied to the value field to establish a monetary amount. The currency is represented as a 3-letter ISO 4217 currency code. For example, the code for the Canadian Dollar is CAD. Default: The default currency of the eBay marketplace that hosts the listing. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/logistics/types/bas:CurrencyCodeEnum'>eBay API documentation</a>
      *
      * @return self
      */
-    public function setAdditionalCost($additional_cost)
+    public function setCurrency($currency)
     {
-        $this->container['additional_cost'] = $additional_cost;
+        $this->container['currency'] = $currency;
 
         return $this;
     }
 
     /**
-     * Gets option_type
+     * Gets value
      *
      * @return string|null
      */
-    public function getOptionType()
+    public function getValue()
     {
-        return $this->container['option_type'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets option_type
+     * Sets value
      *
-     * @param string|null $option_type The name of a shipping option that can be purchased in addition to the base shipping cost of this rate. The value supplied in this field must match exactly the option name as supplied by the selected rate.
+     * @param string|null $value The monetary amount in the specified currency.
      *
      * @return self
      */
-    public function setOptionType($option_type)
+    public function setValue($value)
     {
-        $this->container['option_type'] = $option_type;
+        $this->container['value'] = $value;
 
         return $this;
     }
@@ -280,7 +280,7 @@ class AdditionalOption implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**

@@ -1,11 +1,11 @@
 <?php
 /**
- * Shipment
+ * ShippingQuote
  *
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Logistics
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -29,30 +29,30 @@
 namespace Ebay\Sell\Logistics\Model;
 
 use \ArrayAccess;
-use \Ebay\Sell\ObjectSerializer;
+use \Ebay\Sell\Logistics\ObjectSerializer;
 
 /**
- * Shipment Class Doc Comment
+ * ShippingQuote Class Doc Comment
  *
  * @category Class
- * @description This complex type defines a shipment for a specific package (for example, a box or letter). Shipments are always linked to a purchased shipping label.
- * @package  Ebay\Sell
+ * @description This complex type describes a \&quot;shipping quote,\&quot; which contains the parameters for a package shipment. The shipping quote contains a list of \&quot;live quotes\&quot; or &lt;i&gt;rates&lt;/i&gt; for the shipment. Rates are offerd by a carrier for a particular service, of set of services, for shipping the package. Included in the shipping quote are the package specifications, the shipment&#39;s origin and destination addresses, and the shipping parameters specified by the seller.  &lt;br&gt;&lt;br&gt;Use the &lt;b&gt;rateId&lt;/b&gt; value to select the specific service you want when you create a shipment by calling &lt;b&gt;createFromShippingQuote&lt;/b&gt;.
+ * @package  Ebay\Sell\Logistics
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
+class ShippingQuote implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Shipment';
+    protected static $openAPIModelName = 'ShippingQuote';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,19 +60,15 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'cancellation' => '\Ebay\Sell\Logistics\Model\ShipmentCancellation',
         'creation_date' => 'string',
-        'label_custom_message' => 'string',
-        'label_download_url' => 'string',
-        'label_size' => 'string',
+        'expiration_date' => 'string',
         'orders' => '\Ebay\Sell\Logistics\Model\Order[]',
         'package_specification' => '\Ebay\Sell\Logistics\Model\PackageSpecification',
-        'rate' => '\Ebay\Sell\Logistics\Model\PurchasedRate',
-        'return_to' => '\Ebay\Sell\Logistics\Model\Contact',
+        'rates' => '\Ebay\Sell\Logistics\Model\Rate[]',
         'ship_from' => '\Ebay\Sell\Logistics\Model\Contact',
-        'shipment_id' => 'string',
-        'shipment_tracking_number' => 'string',
-        'ship_to' => '\Ebay\Sell\Logistics\Model\Contact'
+        'shipping_quote_id' => 'string',
+        'ship_to' => '\Ebay\Sell\Logistics\Model\Contact',
+        'warnings' => '\Ebay\Sell\Logistics\Model\Error[]'
     ];
 
     /**
@@ -83,19 +79,15 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'cancellation' => null,
         'creation_date' => null,
-        'label_custom_message' => null,
-        'label_download_url' => null,
-        'label_size' => null,
+        'expiration_date' => null,
         'orders' => null,
         'package_specification' => null,
-        'rate' => null,
-        'return_to' => null,
+        'rates' => null,
         'ship_from' => null,
-        'shipment_id' => null,
-        'shipment_tracking_number' => null,
-        'ship_to' => null
+        'shipping_quote_id' => null,
+        'ship_to' => null,
+        'warnings' => null
     ];
 
     /**
@@ -125,19 +117,15 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'cancellation' => 'cancellation',
         'creation_date' => 'creationDate',
-        'label_custom_message' => 'labelCustomMessage',
-        'label_download_url' => 'labelDownloadUrl',
-        'label_size' => 'labelSize',
+        'expiration_date' => 'expirationDate',
         'orders' => 'orders',
         'package_specification' => 'packageSpecification',
-        'rate' => 'rate',
-        'return_to' => 'returnTo',
+        'rates' => 'rates',
         'ship_from' => 'shipFrom',
-        'shipment_id' => 'shipmentId',
-        'shipment_tracking_number' => 'shipmentTrackingNumber',
-        'ship_to' => 'shipTo'
+        'shipping_quote_id' => 'shippingQuoteId',
+        'ship_to' => 'shipTo',
+        'warnings' => 'warnings'
     ];
 
     /**
@@ -146,19 +134,15 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'cancellation' => 'setCancellation',
         'creation_date' => 'setCreationDate',
-        'label_custom_message' => 'setLabelCustomMessage',
-        'label_download_url' => 'setLabelDownloadUrl',
-        'label_size' => 'setLabelSize',
+        'expiration_date' => 'setExpirationDate',
         'orders' => 'setOrders',
         'package_specification' => 'setPackageSpecification',
-        'rate' => 'setRate',
-        'return_to' => 'setReturnTo',
+        'rates' => 'setRates',
         'ship_from' => 'setShipFrom',
-        'shipment_id' => 'setShipmentId',
-        'shipment_tracking_number' => 'setShipmentTrackingNumber',
-        'ship_to' => 'setShipTo'
+        'shipping_quote_id' => 'setShippingQuoteId',
+        'ship_to' => 'setShipTo',
+        'warnings' => 'setWarnings'
     ];
 
     /**
@@ -167,19 +151,15 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'cancellation' => 'getCancellation',
         'creation_date' => 'getCreationDate',
-        'label_custom_message' => 'getLabelCustomMessage',
-        'label_download_url' => 'getLabelDownloadUrl',
-        'label_size' => 'getLabelSize',
+        'expiration_date' => 'getExpirationDate',
         'orders' => 'getOrders',
         'package_specification' => 'getPackageSpecification',
-        'rate' => 'getRate',
-        'return_to' => 'getReturnTo',
+        'rates' => 'getRates',
         'ship_from' => 'getShipFrom',
-        'shipment_id' => 'getShipmentId',
-        'shipment_tracking_number' => 'getShipmentTrackingNumber',
-        'ship_to' => 'getShipTo'
+        'shipping_quote_id' => 'getShippingQuoteId',
+        'ship_to' => 'getShipTo',
+        'warnings' => 'getWarnings'
     ];
 
     /**
@@ -239,19 +219,15 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['cancellation'] = isset($data['cancellation']) ? $data['cancellation'] : null;
-        $this->container['creation_date'] = isset($data['creation_date']) ? $data['creation_date'] : null;
-        $this->container['label_custom_message'] = isset($data['label_custom_message']) ? $data['label_custom_message'] : null;
-        $this->container['label_download_url'] = isset($data['label_download_url']) ? $data['label_download_url'] : null;
-        $this->container['label_size'] = isset($data['label_size']) ? $data['label_size'] : null;
-        $this->container['orders'] = isset($data['orders']) ? $data['orders'] : null;
-        $this->container['package_specification'] = isset($data['package_specification']) ? $data['package_specification'] : null;
-        $this->container['rate'] = isset($data['rate']) ? $data['rate'] : null;
-        $this->container['return_to'] = isset($data['return_to']) ? $data['return_to'] : null;
-        $this->container['ship_from'] = isset($data['ship_from']) ? $data['ship_from'] : null;
-        $this->container['shipment_id'] = isset($data['shipment_id']) ? $data['shipment_id'] : null;
-        $this->container['shipment_tracking_number'] = isset($data['shipment_tracking_number']) ? $data['shipment_tracking_number'] : null;
-        $this->container['ship_to'] = isset($data['ship_to']) ? $data['ship_to'] : null;
+        $this->container['creation_date'] = $data['creation_date'] ?? null;
+        $this->container['expiration_date'] = $data['expiration_date'] ?? null;
+        $this->container['orders'] = $data['orders'] ?? null;
+        $this->container['package_specification'] = $data['package_specification'] ?? null;
+        $this->container['rates'] = $data['rates'] ?? null;
+        $this->container['ship_from'] = $data['ship_from'] ?? null;
+        $this->container['shipping_quote_id'] = $data['shipping_quote_id'] ?? null;
+        $this->container['ship_to'] = $data['ship_to'] ?? null;
+        $this->container['warnings'] = $data['warnings'] ?? null;
     }
 
     /**
@@ -279,30 +255,6 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets cancellation
-     *
-     * @return \Ebay\Sell\Logistics\Model\ShipmentCancellation|null
-     */
-    public function getCancellation()
-    {
-        return $this->container['cancellation'];
-    }
-
-    /**
-     * Sets cancellation
-     *
-     * @param \Ebay\Sell\Logistics\Model\ShipmentCancellation|null $cancellation cancellation
-     *
-     * @return self
-     */
-    public function setCancellation($cancellation)
-    {
-        $this->container['cancellation'] = $cancellation;
-
-        return $this;
-    }
-
-    /**
      * Gets creation_date
      *
      * @return string|null
@@ -315,7 +267,7 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets creation_date
      *
-     * @param string|null $creation_date The date and time the shipment was created, formatted as an ISO 8601 string, which is based on the 24-hour Coordinated Universal Time (UTC) clock. Format: [YYYY]-[MM]-[DD]T[HH]:[MM]:[SS].[SSS]Z Example: 2018-08-20T07:09:00.000Z
+     * @param string|null $creation_date The date and time this quote was created, expressed as an ISO 8601 UTC string.
      *
      * @return self
      */
@@ -327,73 +279,25 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets label_custom_message
+     * Gets expiration_date
      *
      * @return string|null
      */
-    public function getLabelCustomMessage()
+    public function getExpirationDate()
     {
-        return $this->container['label_custom_message'];
+        return $this->container['expiration_date'];
     }
 
     /**
-     * Sets label_custom_message
+     * Sets expiration_date
      *
-     * @param string|null $label_custom_message If supported by the selected shipping carrier, this field can contain optional seller text to be printed on the shipping label.
+     * @param string|null $expiration_date The last date and time that this quote will be honored, expressed as an ISO 8601 UTC string. After this time the quote expires and the expressed rates can no longer be purchased.
      *
      * @return self
      */
-    public function setLabelCustomMessage($label_custom_message)
+    public function setExpirationDate($expiration_date)
     {
-        $this->container['label_custom_message'] = $label_custom_message;
-
-        return $this;
-    }
-
-    /**
-     * Gets label_download_url
-     *
-     * @return string|null
-     */
-    public function getLabelDownloadUrl()
-    {
-        return $this->container['label_download_url'];
-    }
-
-    /**
-     * Sets label_download_url
-     *
-     * @param string|null $label_download_url The direct URL the seller can use to download an image of the shipping label. By default, the file format is PDF. See downloadLabelFile for requesting different response file formats.
-     *
-     * @return self
-     */
-    public function setLabelDownloadUrl($label_download_url)
-    {
-        $this->container['label_download_url'] = $label_download_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets label_size
-     *
-     * @return string|null
-     */
-    public function getLabelSize()
-    {
-        return $this->container['label_size'];
-    }
-
-    /**
-     * Sets label_size
-     *
-     * @param string|null $label_size The seller's desired label size. The support for multi-sized labels is shipping-carrier specific and if the size requested in the creaateFromShippingQuote call matches a size the carrier supports, the value will be represented here in the shipment. Currently, the only valid value is: 4&quot;x6&quot;
-     *
-     * @return self
-     */
-    public function setLabelSize($label_size)
-    {
-        $this->container['label_size'] = $label_size;
+        $this->container['expiration_date'] = $expiration_date;
 
         return $this;
     }
@@ -447,49 +351,25 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets rate
+     * Gets rates
      *
-     * @return \Ebay\Sell\Logistics\Model\PurchasedRate|null
+     * @return \Ebay\Sell\Logistics\Model\Rate[]|null
      */
-    public function getRate()
+    public function getRates()
     {
-        return $this->container['rate'];
+        return $this->container['rates'];
     }
 
     /**
-     * Sets rate
+     * Sets rates
      *
-     * @param \Ebay\Sell\Logistics\Model\PurchasedRate|null $rate rate
+     * @param \Ebay\Sell\Logistics\Model\Rate[]|null $rates A list of rates where each rate, as identified by a rateId, contains information about a specific shipping service offered by a carrier. Rates include shipping carrier and service, the to and from locations, the pickup and delivery windows, the seller's shipping parameters, the service constraints, and the cost for the base service and a list of additional shipping options. Each rate offered is supported by a label service where you can purchase the rate, and associated shipping label, via a call to createFromShippingQuote.
      *
      * @return self
      */
-    public function setRate($rate)
+    public function setRates($rates)
     {
-        $this->container['rate'] = $rate;
-
-        return $this;
-    }
-
-    /**
-     * Gets return_to
-     *
-     * @return \Ebay\Sell\Logistics\Model\Contact|null
-     */
-    public function getReturnTo()
-    {
-        return $this->container['return_to'];
-    }
-
-    /**
-     * Sets return_to
-     *
-     * @param \Ebay\Sell\Logistics\Model\Contact|null $return_to return_to
-     *
-     * @return self
-     */
-    public function setReturnTo($return_to)
-    {
-        $this->container['return_to'] = $return_to;
+        $this->container['rates'] = $rates;
 
         return $this;
     }
@@ -519,49 +399,25 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets shipment_id
+     * Gets shipping_quote_id
      *
      * @return string|null
      */
-    public function getShipmentId()
+    public function getShippingQuoteId()
     {
-        return $this->container['shipment_id'];
+        return $this->container['shipping_quote_id'];
     }
 
     /**
-     * Sets shipment_id
+     * Sets shipping_quote_id
      *
-     * @param string|null $shipment_id The unique eBay-assigned ID for the shipment. The ID is generated when the shipment is created by a call to createFromShippingQuote.
+     * @param string|null $shipping_quote_id The unique eBay-assigned ID for this shipping quote. The value of this field is associated with a specific package, based on its origin, destination, and size.
      *
      * @return self
      */
-    public function setShipmentId($shipment_id)
+    public function setShippingQuoteId($shipping_quote_id)
     {
-        $this->container['shipment_id'] = $shipment_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets shipment_tracking_number
-     *
-     * @return string|null
-     */
-    public function getShipmentTrackingNumber()
-    {
-        return $this->container['shipment_tracking_number'];
-    }
-
-    /**
-     * Sets shipment_tracking_number
-     *
-     * @param string|null $shipment_tracking_number A unique carrier-assigned ID string that can be used to track the shipment.
-     *
-     * @return self
-     */
-    public function setShipmentTrackingNumber($shipment_tracking_number)
-    {
-        $this->container['shipment_tracking_number'] = $shipment_tracking_number;
+        $this->container['shipping_quote_id'] = $shipping_quote_id;
 
         return $this;
     }
@@ -589,6 +445,30 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
 
         return $this;
     }
+
+    /**
+     * Gets warnings
+     *
+     * @return \Ebay\Sell\Logistics\Model\Error[]|null
+     */
+    public function getWarnings()
+    {
+        return $this->container['warnings'];
+    }
+
+    /**
+     * Sets warnings
+     *
+     * @param \Ebay\Sell\Logistics\Model\Error[]|null $warnings A list of any warnings triggered by the request.
+     *
+     * @return self
+     */
+    public function setWarnings($warnings)
+    {
+        $this->container['warnings'] = $warnings;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *
@@ -610,7 +490,7 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**

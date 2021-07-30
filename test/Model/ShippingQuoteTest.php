@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Logistics
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace Ebay\Sell\Test\Model;
+namespace Ebay\Sell\Logistics\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description This complex type describes a \&quot;shipping quote,\&quot; which contains the parameters for a package shipment. The shipping quote contains a list of \&quot;live quotes\&quot; or &lt;i&gt;rates&lt;/i&gt; for the shipment. Rates are offerd by a carrier for a particular service, of set of services, for shipping the package. Included in the shipping quote are the package specifications, the shipment&#39;s origin and destination addresses, and the shipping parameters specified by the seller.  &lt;br&gt;&lt;br&gt;Use the &lt;b&gt;rateId&lt;/b&gt; value to select the specific service you want when you create a shipment by calling &lt;b&gt;createFromShippingQuote&lt;/b&gt;.
- * @package     Ebay\Sell
+ * @package     Ebay\Sell\Logistics
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */

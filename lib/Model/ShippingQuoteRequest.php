@@ -1,11 +1,11 @@
 <?php
 /**
- * ShippingQuote
+ * ShippingQuoteRequest
  *
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Logistics
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -29,30 +29,30 @@
 namespace Ebay\Sell\Logistics\Model;
 
 use \ArrayAccess;
-use \Ebay\Sell\ObjectSerializer;
+use \Ebay\Sell\Logistics\ObjectSerializer;
 
 /**
- * ShippingQuote Class Doc Comment
+ * ShippingQuoteRequest Class Doc Comment
  *
  * @category Class
- * @description This complex type describes a \&quot;shipping quote,\&quot; which contains the parameters for a package shipment. The shipping quote contains a list of \&quot;live quotes\&quot; or &lt;i&gt;rates&lt;/i&gt; for the shipment. Rates are offerd by a carrier for a particular service, of set of services, for shipping the package. Included in the shipping quote are the package specifications, the shipment&#39;s origin and destination addresses, and the shipping parameters specified by the seller.  &lt;br&gt;&lt;br&gt;Use the &lt;b&gt;rateId&lt;/b&gt; value to select the specific service you want when you create a shipment by calling &lt;b&gt;createFromShippingQuote&lt;/b&gt;.
- * @package  Ebay\Sell
+ * @description This complex type defines the request body for &lt;b&gt;createShippingQuote&lt;/b&gt;. Sellers &lt;i&gt;request a quote&lt;/i&gt; for a shipment by defining the \&quot;To\&quot; and \&quot;From\&quot; addresses for the package, plus the package&#39;s size.  &lt;br&gt;&lt;br&gt;Carriers respond by offering up a \&quot;rate\&quot; for the service of theirs that best fits seller&#39;s needs.
+ * @package  Ebay\Sell\Logistics
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ShippingQuote implements ModelInterface, ArrayAccess, \JsonSerializable
+class ShippingQuoteRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ShippingQuote';
+    protected static $openAPIModelName = 'ShippingQuoteRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,15 +60,10 @@ class ShippingQuote implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'creation_date' => 'string',
-        'expiration_date' => 'string',
         'orders' => '\Ebay\Sell\Logistics\Model\Order[]',
         'package_specification' => '\Ebay\Sell\Logistics\Model\PackageSpecification',
-        'rates' => '\Ebay\Sell\Logistics\Model\Rate[]',
         'ship_from' => '\Ebay\Sell\Logistics\Model\Contact',
-        'shipping_quote_id' => 'string',
-        'ship_to' => '\Ebay\Sell\Logistics\Model\Contact',
-        'warnings' => '\Ebay\Sell\Logistics\Model\Error[]'
+        'ship_to' => '\Ebay\Sell\Logistics\Model\Contact'
     ];
 
     /**
@@ -79,15 +74,10 @@ class ShippingQuote implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'creation_date' => null,
-        'expiration_date' => null,
         'orders' => null,
         'package_specification' => null,
-        'rates' => null,
         'ship_from' => null,
-        'shipping_quote_id' => null,
-        'ship_to' => null,
-        'warnings' => null
+        'ship_to' => null
     ];
 
     /**
@@ -117,15 +107,10 @@ class ShippingQuote implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'creation_date' => 'creationDate',
-        'expiration_date' => 'expirationDate',
         'orders' => 'orders',
         'package_specification' => 'packageSpecification',
-        'rates' => 'rates',
         'ship_from' => 'shipFrom',
-        'shipping_quote_id' => 'shippingQuoteId',
-        'ship_to' => 'shipTo',
-        'warnings' => 'warnings'
+        'ship_to' => 'shipTo'
     ];
 
     /**
@@ -134,15 +119,10 @@ class ShippingQuote implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'creation_date' => 'setCreationDate',
-        'expiration_date' => 'setExpirationDate',
         'orders' => 'setOrders',
         'package_specification' => 'setPackageSpecification',
-        'rates' => 'setRates',
         'ship_from' => 'setShipFrom',
-        'shipping_quote_id' => 'setShippingQuoteId',
-        'ship_to' => 'setShipTo',
-        'warnings' => 'setWarnings'
+        'ship_to' => 'setShipTo'
     ];
 
     /**
@@ -151,15 +131,10 @@ class ShippingQuote implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'creation_date' => 'getCreationDate',
-        'expiration_date' => 'getExpirationDate',
         'orders' => 'getOrders',
         'package_specification' => 'getPackageSpecification',
-        'rates' => 'getRates',
         'ship_from' => 'getShipFrom',
-        'shipping_quote_id' => 'getShippingQuoteId',
-        'ship_to' => 'getShipTo',
-        'warnings' => 'getWarnings'
+        'ship_to' => 'getShipTo'
     ];
 
     /**
@@ -219,15 +194,10 @@ class ShippingQuote implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['creation_date'] = isset($data['creation_date']) ? $data['creation_date'] : null;
-        $this->container['expiration_date'] = isset($data['expiration_date']) ? $data['expiration_date'] : null;
-        $this->container['orders'] = isset($data['orders']) ? $data['orders'] : null;
-        $this->container['package_specification'] = isset($data['package_specification']) ? $data['package_specification'] : null;
-        $this->container['rates'] = isset($data['rates']) ? $data['rates'] : null;
-        $this->container['ship_from'] = isset($data['ship_from']) ? $data['ship_from'] : null;
-        $this->container['shipping_quote_id'] = isset($data['shipping_quote_id']) ? $data['shipping_quote_id'] : null;
-        $this->container['ship_to'] = isset($data['ship_to']) ? $data['ship_to'] : null;
-        $this->container['warnings'] = isset($data['warnings']) ? $data['warnings'] : null;
+        $this->container['orders'] = $data['orders'] ?? null;
+        $this->container['package_specification'] = $data['package_specification'] ?? null;
+        $this->container['ship_from'] = $data['ship_from'] ?? null;
+        $this->container['ship_to'] = $data['ship_to'] ?? null;
     }
 
     /**
@@ -255,54 +225,6 @@ class ShippingQuote implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets creation_date
-     *
-     * @return string|null
-     */
-    public function getCreationDate()
-    {
-        return $this->container['creation_date'];
-    }
-
-    /**
-     * Sets creation_date
-     *
-     * @param string|null $creation_date The date and time this quote was created, expressed as an ISO 8601 UTC string.
-     *
-     * @return self
-     */
-    public function setCreationDate($creation_date)
-    {
-        $this->container['creation_date'] = $creation_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets expiration_date
-     *
-     * @return string|null
-     */
-    public function getExpirationDate()
-    {
-        return $this->container['expiration_date'];
-    }
-
-    /**
-     * Sets expiration_date
-     *
-     * @param string|null $expiration_date The last date and time that this quote will be honored, expressed as an ISO 8601 UTC string. After this time the quote expires and the expressed rates can no longer be purchased.
-     *
-     * @return self
-     */
-    public function setExpirationDate($expiration_date)
-    {
-        $this->container['expiration_date'] = $expiration_date;
-
-        return $this;
-    }
-
-    /**
      * Gets orders
      *
      * @return \Ebay\Sell\Logistics\Model\Order[]|null
@@ -315,7 +237,7 @@ class ShippingQuote implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets orders
      *
-     * @param \Ebay\Sell\Logistics\Model\Order[]|null $orders This list value is optionally assigned by the seller. When present, each element in the returned list contains seller-assigned information about an order (such as an order number). Because a package can contain all or part of one or more orders, this field provides a way for sellers to identify the packages that contain specific orders.
+     * @param \Ebay\Sell\Logistics\Model\Order[]|null $orders A seller-defined list that contains information about the orders in the package. This allows sellers to include information about the line items in the package with the shipment information. A package can contain any number of line items from one or more orders, providing they all ship in the same package. Maximum list size: 10
      *
      * @return self
      */
@@ -351,30 +273,6 @@ class ShippingQuote implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets rates
-     *
-     * @return \Ebay\Sell\Logistics\Model\Rate[]|null
-     */
-    public function getRates()
-    {
-        return $this->container['rates'];
-    }
-
-    /**
-     * Sets rates
-     *
-     * @param \Ebay\Sell\Logistics\Model\Rate[]|null $rates A list of rates where each rate, as identified by a rateId, contains information about a specific shipping service offered by a carrier. Rates include shipping carrier and service, the to and from locations, the pickup and delivery windows, the seller's shipping parameters, the service constraints, and the cost for the base service and a list of additional shipping options. Each rate offered is supported by a label service where you can purchase the rate, and associated shipping label, via a call to createFromShippingQuote.
-     *
-     * @return self
-     */
-    public function setRates($rates)
-    {
-        $this->container['rates'] = $rates;
-
-        return $this;
-    }
-
-    /**
      * Gets ship_from
      *
      * @return \Ebay\Sell\Logistics\Model\Contact|null
@@ -394,30 +292,6 @@ class ShippingQuote implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setShipFrom($ship_from)
     {
         $this->container['ship_from'] = $ship_from;
-
-        return $this;
-    }
-
-    /**
-     * Gets shipping_quote_id
-     *
-     * @return string|null
-     */
-    public function getShippingQuoteId()
-    {
-        return $this->container['shipping_quote_id'];
-    }
-
-    /**
-     * Sets shipping_quote_id
-     *
-     * @param string|null $shipping_quote_id The unique eBay-assigned ID for this shipping quote. The value of this field is associated with a specific package, based on its origin, destination, and size.
-     *
-     * @return self
-     */
-    public function setShippingQuoteId($shipping_quote_id)
-    {
-        $this->container['shipping_quote_id'] = $shipping_quote_id;
 
         return $this;
     }
@@ -445,30 +319,6 @@ class ShippingQuote implements ModelInterface, ArrayAccess, \JsonSerializable
 
         return $this;
     }
-
-    /**
-     * Gets warnings
-     *
-     * @return \Ebay\Sell\Logistics\Model\Error[]|null
-     */
-    public function getWarnings()
-    {
-        return $this->container['warnings'];
-    }
-
-    /**
-     * Sets warnings
-     *
-     * @param \Ebay\Sell\Logistics\Model\Error[]|null $warnings A list of any warnings triggered by the request.
-     *
-     * @return self
-     */
-    public function setWarnings($warnings)
-    {
-        $this->container['warnings'] = $warnings;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *
@@ -490,7 +340,7 @@ class ShippingQuote implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**

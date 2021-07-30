@@ -1,11 +1,11 @@
 <?php
 /**
- * Dimensions
+ * Contact
  *
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Logistics
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -29,30 +29,30 @@
 namespace Ebay\Sell\Logistics\Model;
 
 use \ArrayAccess;
-use \Ebay\Sell\ObjectSerializer;
+use \Ebay\Sell\Logistics\ObjectSerializer;
 
 /**
- * Dimensions Class Doc Comment
+ * Contact Class Doc Comment
  *
  * @category Class
- * @description This complex type defines the dimensions of a package to be shipped.
- * @package  Ebay\Sell
+ * @description This complex type contains contact information for an individual buyer or seller.
+ * @package  Ebay\Sell\Logistics
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Dimensions implements ModelInterface, ArrayAccess, \JsonSerializable
+class Contact implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Dimensions';
+    protected static $openAPIModelName = 'Contact';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,10 +60,10 @@ class Dimensions implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'height' => 'string',
-        'length' => 'string',
-        'unit' => 'string',
-        'width' => 'string'
+        'company_name' => 'string',
+        'contact_address' => '\Ebay\Sell\Logistics\Model\ContactAddress',
+        'full_name' => 'string',
+        'primary_phone' => '\Ebay\Sell\Logistics\Model\PhoneNumber'
     ];
 
     /**
@@ -74,10 +74,10 @@ class Dimensions implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'height' => null,
-        'length' => null,
-        'unit' => null,
-        'width' => null
+        'company_name' => null,
+        'contact_address' => null,
+        'full_name' => null,
+        'primary_phone' => null
     ];
 
     /**
@@ -107,10 +107,10 @@ class Dimensions implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'height' => 'height',
-        'length' => 'length',
-        'unit' => 'unit',
-        'width' => 'width'
+        'company_name' => 'companyName',
+        'contact_address' => 'contactAddress',
+        'full_name' => 'fullName',
+        'primary_phone' => 'primaryPhone'
     ];
 
     /**
@@ -119,10 +119,10 @@ class Dimensions implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'height' => 'setHeight',
-        'length' => 'setLength',
-        'unit' => 'setUnit',
-        'width' => 'setWidth'
+        'company_name' => 'setCompanyName',
+        'contact_address' => 'setContactAddress',
+        'full_name' => 'setFullName',
+        'primary_phone' => 'setPrimaryPhone'
     ];
 
     /**
@@ -131,10 +131,10 @@ class Dimensions implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'height' => 'getHeight',
-        'length' => 'getLength',
-        'unit' => 'getUnit',
-        'width' => 'getWidth'
+        'company_name' => 'getCompanyName',
+        'contact_address' => 'getContactAddress',
+        'full_name' => 'getFullName',
+        'primary_phone' => 'getPrimaryPhone'
     ];
 
     /**
@@ -194,10 +194,10 @@ class Dimensions implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['height'] = isset($data['height']) ? $data['height'] : null;
-        $this->container['length'] = isset($data['length']) ? $data['length'] : null;
-        $this->container['unit'] = isset($data['unit']) ? $data['unit'] : null;
-        $this->container['width'] = isset($data['width']) ? $data['width'] : null;
+        $this->container['company_name'] = $data['company_name'] ?? null;
+        $this->container['contact_address'] = $data['contact_address'] ?? null;
+        $this->container['full_name'] = $data['full_name'] ?? null;
+        $this->container['primary_phone'] = $data['primary_phone'] ?? null;
     }
 
     /**
@@ -225,97 +225,97 @@ class Dimensions implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets height
+     * Gets company_name
      *
      * @return string|null
      */
-    public function getHeight()
+    public function getCompanyName()
     {
-        return $this->container['height'];
+        return $this->container['company_name'];
     }
 
     /**
-     * Sets height
+     * Sets company_name
      *
-     * @param string|null $height The numeric value of the height of the package.
+     * @param string|null $company_name The company name with which the contact is associated.
      *
      * @return self
      */
-    public function setHeight($height)
+    public function setCompanyName($company_name)
     {
-        $this->container['height'] = $height;
+        $this->container['company_name'] = $company_name;
 
         return $this;
     }
 
     /**
-     * Gets length
+     * Gets contact_address
      *
-     * @return string|null
+     * @return \Ebay\Sell\Logistics\Model\ContactAddress|null
      */
-    public function getLength()
+    public function getContactAddress()
     {
-        return $this->container['length'];
+        return $this->container['contact_address'];
     }
 
     /**
-     * Sets length
+     * Sets contact_address
      *
-     * @param string|null $length The numeric value of the length of the package.
+     * @param \Ebay\Sell\Logistics\Model\ContactAddress|null $contact_address contact_address
      *
      * @return self
      */
-    public function setLength($length)
+    public function setContactAddress($contact_address)
     {
-        $this->container['length'] = $length;
+        $this->container['contact_address'] = $contact_address;
 
         return $this;
     }
 
     /**
-     * Gets unit
+     * Gets full_name
      *
      * @return string|null
      */
-    public function getUnit()
+    public function getFullName()
     {
-        return $this->container['unit'];
+        return $this->container['full_name'];
     }
 
     /**
-     * Sets unit
+     * Sets full_name
      *
-     * @param string|null $unit The unit of measure used to express the height, length, and width of the package. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/logistics/types/api:LengthUnitOfMeasureEnum'>eBay API documentation</a>
+     * @param string|null $full_name The contact's full name.
      *
      * @return self
      */
-    public function setUnit($unit)
+    public function setFullName($full_name)
     {
-        $this->container['unit'] = $unit;
+        $this->container['full_name'] = $full_name;
 
         return $this;
     }
 
     /**
-     * Gets width
+     * Gets primary_phone
      *
-     * @return string|null
+     * @return \Ebay\Sell\Logistics\Model\PhoneNumber|null
      */
-    public function getWidth()
+    public function getPrimaryPhone()
     {
-        return $this->container['width'];
+        return $this->container['primary_phone'];
     }
 
     /**
-     * Sets width
+     * Sets primary_phone
      *
-     * @param string|null $width The numeric value of the width of the package.
+     * @param \Ebay\Sell\Logistics\Model\PhoneNumber|null $primary_phone primary_phone
      *
      * @return self
      */
-    public function setWidth($width)
+    public function setPrimaryPhone($primary_phone)
     {
-        $this->container['width'] = $width;
+        $this->container['primary_phone'] = $primary_phone;
 
         return $this;
     }
@@ -340,7 +340,7 @@ class Dimensions implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**

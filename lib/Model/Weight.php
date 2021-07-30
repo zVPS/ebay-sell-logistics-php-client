@@ -1,11 +1,11 @@
 <?php
 /**
- * ErrorParameter
+ * Weight
  *
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Logistics
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -29,30 +29,30 @@
 namespace Ebay\Sell\Logistics\Model;
 
 use \ArrayAccess;
-use \Ebay\Sell\ObjectSerializer;
+use \Ebay\Sell\Logistics\ObjectSerializer;
 
 /**
- * ErrorParameter Class Doc Comment
+ * Weight Class Doc Comment
  *
  * @category Class
- * @description Container for an error parameter.
- * @package  Ebay\Sell
+ * @description This complex type contains information about the weight of an object such as a shipping package.
+ * @package  Ebay\Sell\Logistics
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ErrorParameter implements ModelInterface, ArrayAccess, \JsonSerializable
+class Weight implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ErrorParameter';
+    protected static $openAPIModelName = 'Weight';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,7 +60,7 @@ class ErrorParameter implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
+        'unit' => 'string',
         'value' => 'string'
     ];
 
@@ -72,7 +72,7 @@ class ErrorParameter implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
+        'unit' => null,
         'value' => null
     ];
 
@@ -103,7 +103,7 @@ class ErrorParameter implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
+        'unit' => 'unit',
         'value' => 'value'
     ];
 
@@ -113,7 +113,7 @@ class ErrorParameter implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
+        'unit' => 'setUnit',
         'value' => 'setValue'
     ];
 
@@ -123,7 +123,7 @@ class ErrorParameter implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
+        'unit' => 'getUnit',
         'value' => 'getValue'
     ];
 
@@ -184,8 +184,8 @@ class ErrorParameter implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['unit'] = $data['unit'] ?? null;
+        $this->container['value'] = $data['value'] ?? null;
     }
 
     /**
@@ -213,25 +213,25 @@ class ErrorParameter implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets name
+     * Gets unit
      *
      * @return string|null
      */
-    public function getName()
+    public function getUnit()
     {
-        return $this->container['name'];
+        return $this->container['unit'];
     }
 
     /**
-     * Sets name
+     * Sets unit
      *
-     * @param string|null $name Name of the entity that threw the error.
+     * @param string|null $unit The unit of measurement used to specify the weight of a shipping package. Both the unit and value fields are required if the weight container is used. If the English system of measurement is being used, the applicable values for weight units are POUND and OUNCE. If the metric system of measurement is being used, the applicable values for weight units are KILOGRAM and GRAM. The metric system is used by most countries outside of the US. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/logistics/types/api:WeightUnitOfMeasureEnum'>eBay API documentation</a>
      *
      * @return self
      */
-    public function setName($name)
+    public function setUnit($unit)
     {
-        $this->container['name'] = $name;
+        $this->container['unit'] = $unit;
 
         return $this;
     }
@@ -249,7 +249,7 @@ class ErrorParameter implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets value
      *
-     * @param string|null $value A description of the error.
+     * @param string|null $value The numeric value of the weight of the package, as measured by the value of unit.
      *
      * @return self
      */
@@ -280,7 +280,7 @@ class ErrorParameter implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**

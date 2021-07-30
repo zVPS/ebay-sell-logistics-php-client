@@ -1,11 +1,11 @@
 <?php
 /**
- * Weight
+ * PhoneNumber
  *
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Logistics
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -29,30 +29,30 @@
 namespace Ebay\Sell\Logistics\Model;
 
 use \ArrayAccess;
-use \Ebay\Sell\ObjectSerializer;
+use \Ebay\Sell\Logistics\ObjectSerializer;
 
 /**
- * Weight Class Doc Comment
+ * PhoneNumber Class Doc Comment
  *
  * @category Class
- * @description This complex type contains information about the weight of an object such as a shipping package.
- * @package  Ebay\Sell
+ * @description This complex type contains a string field representing a telephone number.
+ * @package  Ebay\Sell\Logistics
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Weight implements ModelInterface, ArrayAccess, \JsonSerializable
+class PhoneNumber implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Weight';
+    protected static $openAPIModelName = 'PhoneNumber';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,8 +60,7 @@ class Weight implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'unit' => 'string',
-        'value' => 'string'
+        'phone_number' => 'string'
     ];
 
     /**
@@ -72,8 +71,7 @@ class Weight implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'unit' => null,
-        'value' => null
+        'phone_number' => null
     ];
 
     /**
@@ -103,8 +101,7 @@ class Weight implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'unit' => 'unit',
-        'value' => 'value'
+        'phone_number' => 'phoneNumber'
     ];
 
     /**
@@ -113,8 +110,7 @@ class Weight implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'unit' => 'setUnit',
-        'value' => 'setValue'
+        'phone_number' => 'setPhoneNumber'
     ];
 
     /**
@@ -123,8 +119,7 @@ class Weight implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'unit' => 'getUnit',
-        'value' => 'getValue'
+        'phone_number' => 'getPhoneNumber'
     ];
 
     /**
@@ -184,8 +179,7 @@ class Weight implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['unit'] = isset($data['unit']) ? $data['unit'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['phone_number'] = $data['phone_number'] ?? null;
     }
 
     /**
@@ -213,49 +207,25 @@ class Weight implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets unit
+     * Gets phone_number
      *
      * @return string|null
      */
-    public function getUnit()
+    public function getPhoneNumber()
     {
-        return $this->container['unit'];
+        return $this->container['phone_number'];
     }
 
     /**
-     * Sets unit
+     * Sets phone_number
      *
-     * @param string|null $unit The unit of measurement used to specify the weight of a shipping package. Both the unit and value fields are required if the weight container is used. If the English system of measurement is being used, the applicable values for weight units are POUND and OUNCE. If the metric system of measurement is being used, the applicable values for weight units are KILOGRAM and GRAM. The metric system is used by most countries outside of the US. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/logistics/types/api:WeightUnitOfMeasureEnum'>eBay API documentation</a>
+     * @param string|null $phone_number A telephone number.
      *
      * @return self
      */
-    public function setUnit($unit)
+    public function setPhoneNumber($phone_number)
     {
-        $this->container['unit'] = $unit;
-
-        return $this;
-    }
-
-    /**
-     * Gets value
-     *
-     * @return string|null
-     */
-    public function getValue()
-    {
-        return $this->container['value'];
-    }
-
-    /**
-     * Sets value
-     *
-     * @param string|null $value The numeric value of the weight of the package, as measured by the value of unit.
-     *
-     * @return self
-     */
-    public function setValue($value)
-    {
-        $this->container['value'] = $value;
+        $this->container['phone_number'] = $phone_number;
 
         return $this;
     }
@@ -280,7 +250,7 @@ class Weight implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**

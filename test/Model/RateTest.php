@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Logistics
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace Ebay\Sell\Test\Model;
+namespace Ebay\Sell\Logistics\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description This complex type contains live quote information about a shipping service that&#39;s available for a given shipping quote request, including the shipping carrier and service, delivery window, shipping cost, and additional shipping options.
- * @package     Ebay\Sell
+ * @package     Ebay\Sell\Logistics
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */

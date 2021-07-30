@@ -1,11 +1,11 @@
 <?php
 /**
- * PackageSpecification
+ * Order
  *
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Logistics
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -29,30 +29,30 @@
 namespace Ebay\Sell\Logistics\Model;
 
 use \ArrayAccess;
-use \Ebay\Sell\ObjectSerializer;
+use \Ebay\Sell\Logistics\ObjectSerializer;
 
 /**
- * PackageSpecification Class Doc Comment
+ * Order Class Doc Comment
  *
  * @category Class
- * @description This complex type specifies the dimensions and weight of a package.
- * @package  Ebay\Sell
+ * @description This complex type defines an order from which a seller is including one or more line items in a single package to be shipped.
+ * @package  Ebay\Sell\Logistics
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PackageSpecification implements ModelInterface, ArrayAccess, \JsonSerializable
+class Order implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PackageSpecification';
+    protected static $openAPIModelName = 'Order';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,8 +60,8 @@ class PackageSpecification implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'dimensions' => '\Ebay\Sell\Logistics\Model\Dimensions',
-        'weight' => '\Ebay\Sell\Logistics\Model\Weight'
+        'channel' => 'string',
+        'order_id' => 'string'
     ];
 
     /**
@@ -72,8 +72,8 @@ class PackageSpecification implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'dimensions' => null,
-        'weight' => null
+        'channel' => null,
+        'order_id' => null
     ];
 
     /**
@@ -103,8 +103,8 @@ class PackageSpecification implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'dimensions' => 'dimensions',
-        'weight' => 'weight'
+        'channel' => 'channel',
+        'order_id' => 'orderId'
     ];
 
     /**
@@ -113,8 +113,8 @@ class PackageSpecification implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'dimensions' => 'setDimensions',
-        'weight' => 'setWeight'
+        'channel' => 'setChannel',
+        'order_id' => 'setOrderId'
     ];
 
     /**
@@ -123,8 +123,8 @@ class PackageSpecification implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'dimensions' => 'getDimensions',
-        'weight' => 'getWeight'
+        'channel' => 'getChannel',
+        'order_id' => 'getOrderId'
     ];
 
     /**
@@ -184,8 +184,8 @@ class PackageSpecification implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(array $data = null)
     {
-        $this->container['dimensions'] = isset($data['dimensions']) ? $data['dimensions'] : null;
-        $this->container['weight'] = isset($data['weight']) ? $data['weight'] : null;
+        $this->container['channel'] = $data['channel'] ?? null;
+        $this->container['order_id'] = $data['order_id'] ?? null;
     }
 
     /**
@@ -213,49 +213,49 @@ class PackageSpecification implements ModelInterface, ArrayAccess, \JsonSerializ
 
 
     /**
-     * Gets dimensions
+     * Gets channel
      *
-     * @return \Ebay\Sell\Logistics\Model\Dimensions|null
+     * @return string|null
      */
-    public function getDimensions()
+    public function getChannel()
     {
-        return $this->container['dimensions'];
+        return $this->container['channel'];
     }
 
     /**
-     * Sets dimensions
+     * Sets channel
      *
-     * @param \Ebay\Sell\Logistics\Model\Dimensions|null $dimensions dimensions
+     * @param string|null $channel The e-commerce platform or environment where the order was created. Use the value EBAY to get the rates available for eBay orders.
      *
      * @return self
      */
-    public function setDimensions($dimensions)
+    public function setChannel($channel)
     {
-        $this->container['dimensions'] = $dimensions;
+        $this->container['channel'] = $channel;
 
         return $this;
     }
 
     /**
-     * Gets weight
+     * Gets order_id
      *
-     * @return \Ebay\Sell\Logistics\Model\Weight|null
+     * @return string|null
      */
-    public function getWeight()
+    public function getOrderId()
     {
-        return $this->container['weight'];
+        return $this->container['order_id'];
     }
 
     /**
-     * Sets weight
+     * Sets order_id
      *
-     * @param \Ebay\Sell\Logistics\Model\Weight|null $weight weight
+     * @param string|null $order_id The unique ID of the order supplied by the channel of origin. For eBay orders, this would be the orderId.
      *
      * @return self
      */
-    public function setWeight($weight)
+    public function setOrderId($order_id)
     {
-        $this->container['weight'] = $weight;
+        $this->container['order_id'] = $order_id;
 
         return $this;
     }
@@ -280,7 +280,7 @@ class PackageSpecification implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**

@@ -1,11 +1,11 @@
 <?php
 /**
- * PhoneNumber
+ * PickupSlot
  *
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Logistics
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -29,30 +29,30 @@
 namespace Ebay\Sell\Logistics\Model;
 
 use \ArrayAccess;
-use \Ebay\Sell\ObjectSerializer;
+use \Ebay\Sell\Logistics\ObjectSerializer;
 
 /**
- * PhoneNumber Class Doc Comment
+ * PickupSlot Class Doc Comment
  *
  * @category Class
- * @description This complex type contains a string field representing a telephone number.
- * @package  Ebay\Sell
+ * @description This complex type defines a time window for the pickup of a package.
+ * @package  Ebay\Sell\Logistics
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PhoneNumber implements ModelInterface, ArrayAccess, \JsonSerializable
+class PickupSlot implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PhoneNumber';
+    protected static $openAPIModelName = 'PickupSlot';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,7 +60,10 @@ class PhoneNumber implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'phone_number' => 'string'
+        'pickup_slot_end_time' => 'string',
+        'pickup_slot_id' => 'string',
+        'pickup_slot_start_time' => 'string',
+        'pickup_slot_time_zone' => 'string'
     ];
 
     /**
@@ -71,7 +74,10 @@ class PhoneNumber implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'phone_number' => null
+        'pickup_slot_end_time' => null,
+        'pickup_slot_id' => null,
+        'pickup_slot_start_time' => null,
+        'pickup_slot_time_zone' => null
     ];
 
     /**
@@ -101,7 +107,10 @@ class PhoneNumber implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'phone_number' => 'phoneNumber'
+        'pickup_slot_end_time' => 'pickupSlotEndTime',
+        'pickup_slot_id' => 'pickupSlotId',
+        'pickup_slot_start_time' => 'pickupSlotStartTime',
+        'pickup_slot_time_zone' => 'pickupSlotTimeZone'
     ];
 
     /**
@@ -110,7 +119,10 @@ class PhoneNumber implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'phone_number' => 'setPhoneNumber'
+        'pickup_slot_end_time' => 'setPickupSlotEndTime',
+        'pickup_slot_id' => 'setPickupSlotId',
+        'pickup_slot_start_time' => 'setPickupSlotStartTime',
+        'pickup_slot_time_zone' => 'setPickupSlotTimeZone'
     ];
 
     /**
@@ -119,7 +131,10 @@ class PhoneNumber implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'phone_number' => 'getPhoneNumber'
+        'pickup_slot_end_time' => 'getPickupSlotEndTime',
+        'pickup_slot_id' => 'getPickupSlotId',
+        'pickup_slot_start_time' => 'getPickupSlotStartTime',
+        'pickup_slot_time_zone' => 'getPickupSlotTimeZone'
     ];
 
     /**
@@ -179,7 +194,10 @@ class PhoneNumber implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['phone_number'] = isset($data['phone_number']) ? $data['phone_number'] : null;
+        $this->container['pickup_slot_end_time'] = $data['pickup_slot_end_time'] ?? null;
+        $this->container['pickup_slot_id'] = $data['pickup_slot_id'] ?? null;
+        $this->container['pickup_slot_start_time'] = $data['pickup_slot_start_time'] ?? null;
+        $this->container['pickup_slot_time_zone'] = $data['pickup_slot_time_zone'] ?? null;
     }
 
     /**
@@ -207,25 +225,97 @@ class PhoneNumber implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets phone_number
+     * Gets pickup_slot_end_time
      *
      * @return string|null
      */
-    public function getPhoneNumber()
+    public function getPickupSlotEndTime()
     {
-        return $this->container['phone_number'];
+        return $this->container['pickup_slot_end_time'];
     }
 
     /**
-     * Sets phone_number
+     * Sets pickup_slot_end_time
      *
-     * @param string|null $phone_number A telephone number.
+     * @param string|null $pickup_slot_end_time The date and time the pickup slot ends, formatted as an ISO 8601 string, which is based on the 24-hour Coordinated Universal Time (UTC) clock. Format: [YYYY]-[MM]-[DD]T[HH]:[MM]:[SS].[SSS]Z Example: 2018-08-20T07:09:00.000Z
      *
      * @return self
      */
-    public function setPhoneNumber($phone_number)
+    public function setPickupSlotEndTime($pickup_slot_end_time)
     {
-        $this->container['phone_number'] = $phone_number;
+        $this->container['pickup_slot_end_time'] = $pickup_slot_end_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets pickup_slot_id
+     *
+     * @return string|null
+     */
+    public function getPickupSlotId()
+    {
+        return $this->container['pickup_slot_id'];
+    }
+
+    /**
+     * Sets pickup_slot_id
+     *
+     * @param string|null $pickup_slot_id Seller-defined name for the pickup slot.
+     *
+     * @return self
+     */
+    public function setPickupSlotId($pickup_slot_id)
+    {
+        $this->container['pickup_slot_id'] = $pickup_slot_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets pickup_slot_start_time
+     *
+     * @return string|null
+     */
+    public function getPickupSlotStartTime()
+    {
+        return $this->container['pickup_slot_start_time'];
+    }
+
+    /**
+     * Sets pickup_slot_start_time
+     *
+     * @param string|null $pickup_slot_start_time The date and time the pickup slot begins, formatted as an ISO 8601 UTC string.
+     *
+     * @return self
+     */
+    public function setPickupSlotStartTime($pickup_slot_start_time)
+    {
+        $this->container['pickup_slot_start_time'] = $pickup_slot_start_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets pickup_slot_time_zone
+     *
+     * @return string|null
+     */
+    public function getPickupSlotTimeZone()
+    {
+        return $this->container['pickup_slot_time_zone'];
+    }
+
+    /**
+     * Sets pickup_slot_time_zone
+     *
+     * @param string|null $pickup_slot_time_zone The time zone of the pickup location, returned as Time Zone Database ID (also know as an Olson time zone ID).
+     *
+     * @return self
+     */
+    public function setPickupSlotTimeZone($pickup_slot_time_zone)
+    {
+        $this->container['pickup_slot_time_zone'] = $pickup_slot_time_zone;
 
         return $this;
     }
@@ -250,7 +340,7 @@ class PhoneNumber implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**

@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Logistics
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace Ebay\Sell\Test\Model;
+namespace Ebay\Sell\Logistics\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description This complex type defines the request body for &lt;b&gt;createShippingQuote&lt;/b&gt;. Sellers &lt;i&gt;request a quote&lt;/i&gt; for a shipment by defining the \&quot;To\&quot; and \&quot;From\&quot; addresses for the package, plus the package&#39;s size.  &lt;br&gt;&lt;br&gt;Carriers respond by offering up a \&quot;rate\&quot; for the service of theirs that best fits seller&#39;s needs.
- * @package     Ebay\Sell
+ * @package     Ebay\Sell\Logistics
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */

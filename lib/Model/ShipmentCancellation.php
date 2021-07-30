@@ -1,11 +1,11 @@
 <?php
 /**
- * Order
+ * ShipmentCancellation
  *
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Logistics
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -29,30 +29,30 @@
 namespace Ebay\Sell\Logistics\Model;
 
 use \ArrayAccess;
-use \Ebay\Sell\ObjectSerializer;
+use \Ebay\Sell\Logistics\ObjectSerializer;
 
 /**
- * Order Class Doc Comment
+ * ShipmentCancellation Class Doc Comment
  *
  * @category Class
- * @description This complex type defines an order from which a seller is including one or more line items in a single package to be shipped.
- * @package  Ebay\Sell
+ * @description This type defines a shipment cancellation by the date and time the cancellation request was made and the current status of the request.
+ * @package  Ebay\Sell\Logistics
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Order implements ModelInterface, ArrayAccess, \JsonSerializable
+class ShipmentCancellation implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Order';
+    protected static $openAPIModelName = 'ShipmentCancellation';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,8 +60,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'channel' => 'string',
-        'order_id' => 'string'
+        'cancellation_requested_date' => 'string',
+        'cancellation_status' => 'string'
     ];
 
     /**
@@ -72,8 +72,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'channel' => null,
-        'order_id' => null
+        'cancellation_requested_date' => null,
+        'cancellation_status' => null
     ];
 
     /**
@@ -103,8 +103,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'channel' => 'channel',
-        'order_id' => 'orderId'
+        'cancellation_requested_date' => 'cancellationRequestedDate',
+        'cancellation_status' => 'cancellationStatus'
     ];
 
     /**
@@ -113,8 +113,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'channel' => 'setChannel',
-        'order_id' => 'setOrderId'
+        'cancellation_requested_date' => 'setCancellationRequestedDate',
+        'cancellation_status' => 'setCancellationStatus'
     ];
 
     /**
@@ -123,8 +123,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'channel' => 'getChannel',
-        'order_id' => 'getOrderId'
+        'cancellation_requested_date' => 'getCancellationRequestedDate',
+        'cancellation_status' => 'getCancellationStatus'
     ];
 
     /**
@@ -184,8 +184,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['channel'] = isset($data['channel']) ? $data['channel'] : null;
-        $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
+        $this->container['cancellation_requested_date'] = $data['cancellation_requested_date'] ?? null;
+        $this->container['cancellation_status'] = $data['cancellation_status'] ?? null;
     }
 
     /**
@@ -213,49 +213,49 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets channel
+     * Gets cancellation_requested_date
      *
      * @return string|null
      */
-    public function getChannel()
+    public function getCancellationRequestedDate()
     {
-        return $this->container['channel'];
+        return $this->container['cancellation_requested_date'];
     }
 
     /**
-     * Sets channel
+     * Sets cancellation_requested_date
      *
-     * @param string|null $channel The e-commerce platform or environment where the order was created. Use the value EBAY to get the rates available for eBay orders.
+     * @param string|null $cancellation_requested_date The time and date the request was made to cancel the shipment, formatted as an ISO 8601 UTC string.
      *
      * @return self
      */
-    public function setChannel($channel)
+    public function setCancellationRequestedDate($cancellation_requested_date)
     {
-        $this->container['channel'] = $channel;
+        $this->container['cancellation_requested_date'] = $cancellation_requested_date;
 
         return $this;
     }
 
     /**
-     * Gets order_id
+     * Gets cancellation_status
      *
      * @return string|null
      */
-    public function getOrderId()
+    public function getCancellationStatus()
     {
-        return $this->container['order_id'];
+        return $this->container['cancellation_status'];
     }
 
     /**
-     * Sets order_id
+     * Sets cancellation_status
      *
-     * @param string|null $order_id The unique ID of the order supplied by the channel of origin. For eBay orders, this would be the orderId.
+     * @param string|null $cancellation_status This enum specifies the current cancellation status of a shipment, if a cancellation request has been made. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/logistics/types/api:ShipmentCancellationStatusEnum'>eBay API documentation</a>
      *
      * @return self
      */
-    public function setOrderId($order_id)
+    public function setCancellationStatus($cancellation_status)
     {
-        $this->container['order_id'] = $order_id;
+        $this->container['cancellation_status'] = $cancellation_status;
 
         return $this;
     }
@@ -280,7 +280,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**

@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Logistics
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace Ebay\Sell\Logistics;
+namespace Ebay\Sell\Logistics\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -33,16 +33,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Ebay\Sell\ApiException;
-use Ebay\Sell\Configuration;
-use Ebay\Sell\HeaderSelector;
-use Ebay\Sell\ObjectSerializer;
+use Ebay\Sell\Logistics\ApiException;
+use Ebay\Sell\Logistics\Configuration;
+use Ebay\Sell\Logistics\HeaderSelector;
+use Ebay\Sell\Logistics\ObjectSerializer;
 
 /**
  * ShippingQuoteApi Class Doc Comment
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Logistics
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -90,9 +90,8 @@ class ShippingQuoteApi
      * Set the host index
      *
      * @param int $hostIndex Host index (required)
-     * @return void
      */
-    public function setHostIndex($hostIndex)
+    public function setHostIndex($hostIndex): void
     {
         $this->hostIndex = $hostIndex;
     }
@@ -120,7 +119,7 @@ class ShippingQuoteApi
      *
      * @param  \Ebay\Sell\Logistics\Model\ShippingQuoteRequest $body The request object for createShippingQuote. (required)
      *
-     * @throws \Ebay\Sell\ApiException on non-2xx response
+     * @throws \Ebay\Sell\Logistics\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Ebay\Sell\Logistics\Model\ShippingQuote
      */
@@ -135,7 +134,7 @@ class ShippingQuoteApi
      *
      * @param  \Ebay\Sell\Logistics\Model\ShippingQuoteRequest $body The request object for createShippingQuote. (required)
      *
-     * @throws \Ebay\Sell\ApiException on non-2xx response
+     * @throws \Ebay\Sell\Logistics\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Ebay\Sell\Logistics\Model\ShippingQuote, HTTP status code, HTTP response headers (array of strings)
      */
@@ -378,7 +377,7 @@ class ShippingQuoteApi
      *
      * @param  string $shipping_quote_id This path parameter specifies the unique eBay-assigned ID of the shipping quote you want to retrieve. The shippingQuoteId value is generated and returned by a call to createShippingQuote. (required)
      *
-     * @throws \Ebay\Sell\ApiException on non-2xx response
+     * @throws \Ebay\Sell\Logistics\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Ebay\Sell\Logistics\Model\ShippingQuote
      */
@@ -393,7 +392,7 @@ class ShippingQuoteApi
      *
      * @param  string $shipping_quote_id This path parameter specifies the unique eBay-assigned ID of the shipping quote you want to retrieve. The shippingQuoteId value is generated and returned by a call to createShippingQuote. (required)
      *
-     * @throws \Ebay\Sell\ApiException on non-2xx response
+     * @throws \Ebay\Sell\Logistics\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Ebay\Sell\Logistics\Model\ShippingQuote, HTTP status code, HTTP response headers (array of strings)
      */

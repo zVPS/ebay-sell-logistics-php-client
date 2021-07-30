@@ -1,11 +1,11 @@
 <?php
 /**
- * Amount
+ * PackageSpecification
  *
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Logistics
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -29,30 +29,30 @@
 namespace Ebay\Sell\Logistics\Model;
 
 use \ArrayAccess;
-use \Ebay\Sell\ObjectSerializer;
+use \Ebay\Sell\Logistics\ObjectSerializer;
 
 /**
- * Amount Class Doc Comment
+ * PackageSpecification Class Doc Comment
  *
  * @category Class
- * @description A complex type that describes the value of a monetary amount as represented by a global currency.
- * @package  Ebay\Sell
+ * @description This complex type specifies the dimensions and weight of a package.
+ * @package  Ebay\Sell\Logistics
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Amount implements ModelInterface, ArrayAccess, \JsonSerializable
+class PackageSpecification implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Amount';
+    protected static $openAPIModelName = 'PackageSpecification';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,8 +60,8 @@ class Amount implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'currency' => 'string',
-        'value' => 'string'
+        'dimensions' => '\Ebay\Sell\Logistics\Model\Dimensions',
+        'weight' => '\Ebay\Sell\Logistics\Model\Weight'
     ];
 
     /**
@@ -72,8 +72,8 @@ class Amount implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'currency' => null,
-        'value' => null
+        'dimensions' => null,
+        'weight' => null
     ];
 
     /**
@@ -103,8 +103,8 @@ class Amount implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'currency' => 'currency',
-        'value' => 'value'
+        'dimensions' => 'dimensions',
+        'weight' => 'weight'
     ];
 
     /**
@@ -113,8 +113,8 @@ class Amount implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'currency' => 'setCurrency',
-        'value' => 'setValue'
+        'dimensions' => 'setDimensions',
+        'weight' => 'setWeight'
     ];
 
     /**
@@ -123,8 +123,8 @@ class Amount implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'currency' => 'getCurrency',
-        'value' => 'getValue'
+        'dimensions' => 'getDimensions',
+        'weight' => 'getWeight'
     ];
 
     /**
@@ -184,8 +184,8 @@ class Amount implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['dimensions'] = $data['dimensions'] ?? null;
+        $this->container['weight'] = $data['weight'] ?? null;
     }
 
     /**
@@ -213,49 +213,49 @@ class Amount implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets currency
+     * Gets dimensions
      *
-     * @return string|null
+     * @return \Ebay\Sell\Logistics\Model\Dimensions|null
      */
-    public function getCurrency()
+    public function getDimensions()
     {
-        return $this->container['currency'];
+        return $this->container['dimensions'];
     }
 
     /**
-     * Sets currency
+     * Sets dimensions
      *
-     * @param string|null $currency The base currency applied to the value field to establish a monetary amount. The currency is represented as a 3-letter ISO 4217 currency code. For example, the code for the Canadian Dollar is CAD. Default: The default currency of the eBay marketplace that hosts the listing. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/logistics/types/bas:CurrencyCodeEnum'>eBay API documentation</a>
+     * @param \Ebay\Sell\Logistics\Model\Dimensions|null $dimensions dimensions
      *
      * @return self
      */
-    public function setCurrency($currency)
+    public function setDimensions($dimensions)
     {
-        $this->container['currency'] = $currency;
+        $this->container['dimensions'] = $dimensions;
 
         return $this;
     }
 
     /**
-     * Gets value
+     * Gets weight
      *
-     * @return string|null
+     * @return \Ebay\Sell\Logistics\Model\Weight|null
      */
-    public function getValue()
+    public function getWeight()
     {
-        return $this->container['value'];
+        return $this->container['weight'];
     }
 
     /**
-     * Sets value
+     * Sets weight
      *
-     * @param string|null $value The monetary amount in the specified currency.
+     * @param \Ebay\Sell\Logistics\Model\Weight|null $weight weight
      *
      * @return self
      */
-    public function setValue($value)
+    public function setWeight($weight)
     {
-        $this->container['value'] = $value;
+        $this->container['weight'] = $weight;
 
         return $this;
     }
@@ -280,7 +280,7 @@ class Amount implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**

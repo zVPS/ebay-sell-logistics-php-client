@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Logistics
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -29,14 +29,14 @@
 namespace Ebay\Sell\Logistics\Model;
 
 use \ArrayAccess;
-use \Ebay\Sell\ObjectSerializer;
+use \Ebay\Sell\Logistics\ObjectSerializer;
 
 /**
  * PurchasedRate Class Doc Comment
  *
  * @category Class
  * @description The \&quot;rate\&quot; that has been selected and purchased for the shipment, as referenced by the &lt;b&gt;rateId&lt;/b&gt; value.
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Logistics
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -45,7 +45,7 @@ use \Ebay\Sell\ObjectSerializer;
  */
 class PurchasedRate implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -249,21 +249,21 @@ class PurchasedRate implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['additional_options'] = isset($data['additional_options']) ? $data['additional_options'] : null;
-        $this->container['base_shipping_cost'] = isset($data['base_shipping_cost']) ? $data['base_shipping_cost'] : null;
-        $this->container['destination_time_zone'] = isset($data['destination_time_zone']) ? $data['destination_time_zone'] : null;
-        $this->container['max_estimated_delivery_date'] = isset($data['max_estimated_delivery_date']) ? $data['max_estimated_delivery_date'] : null;
-        $this->container['min_estimated_delivery_date'] = isset($data['min_estimated_delivery_date']) ? $data['min_estimated_delivery_date'] : null;
-        $this->container['pickup_networks'] = isset($data['pickup_networks']) ? $data['pickup_networks'] : null;
-        $this->container['pickup_slot_id'] = isset($data['pickup_slot_id']) ? $data['pickup_slot_id'] : null;
-        $this->container['pickup_type'] = isset($data['pickup_type']) ? $data['pickup_type'] : null;
-        $this->container['rate_id'] = isset($data['rate_id']) ? $data['rate_id'] : null;
-        $this->container['shipping_carrier_code'] = isset($data['shipping_carrier_code']) ? $data['shipping_carrier_code'] : null;
-        $this->container['shipping_carrier_name'] = isset($data['shipping_carrier_name']) ? $data['shipping_carrier_name'] : null;
-        $this->container['shipping_quote_id'] = isset($data['shipping_quote_id']) ? $data['shipping_quote_id'] : null;
-        $this->container['shipping_service_code'] = isset($data['shipping_service_code']) ? $data['shipping_service_code'] : null;
-        $this->container['shipping_service_name'] = isset($data['shipping_service_name']) ? $data['shipping_service_name'] : null;
-        $this->container['total_shipping_cost'] = isset($data['total_shipping_cost']) ? $data['total_shipping_cost'] : null;
+        $this->container['additional_options'] = $data['additional_options'] ?? null;
+        $this->container['base_shipping_cost'] = $data['base_shipping_cost'] ?? null;
+        $this->container['destination_time_zone'] = $data['destination_time_zone'] ?? null;
+        $this->container['max_estimated_delivery_date'] = $data['max_estimated_delivery_date'] ?? null;
+        $this->container['min_estimated_delivery_date'] = $data['min_estimated_delivery_date'] ?? null;
+        $this->container['pickup_networks'] = $data['pickup_networks'] ?? null;
+        $this->container['pickup_slot_id'] = $data['pickup_slot_id'] ?? null;
+        $this->container['pickup_type'] = $data['pickup_type'] ?? null;
+        $this->container['rate_id'] = $data['rate_id'] ?? null;
+        $this->container['shipping_carrier_code'] = $data['shipping_carrier_code'] ?? null;
+        $this->container['shipping_carrier_name'] = $data['shipping_carrier_name'] ?? null;
+        $this->container['shipping_quote_id'] = $data['shipping_quote_id'] ?? null;
+        $this->container['shipping_service_code'] = $data['shipping_service_code'] ?? null;
+        $this->container['shipping_service_name'] = $data['shipping_service_name'] ?? null;
+        $this->container['total_shipping_cost'] = $data['total_shipping_cost'] ?? null;
     }
 
     /**
@@ -670,7 +670,7 @@ class PurchasedRate implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**

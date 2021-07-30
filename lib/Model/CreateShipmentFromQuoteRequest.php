@@ -1,11 +1,11 @@
 <?php
 /**
- * ContactAddress
+ * CreateShipmentFromQuoteRequest
  *
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Logistics
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -29,30 +29,30 @@
 namespace Ebay\Sell\Logistics\Model;
 
 use \ArrayAccess;
-use \Ebay\Sell\ObjectSerializer;
+use \Ebay\Sell\Logistics\ObjectSerializer;
 
 /**
- * ContactAddress Class Doc Comment
+ * CreateShipmentFromQuoteRequest Class Doc Comment
  *
  * @category Class
- * @description This complex type specifies the details of a geographical address.
- * @package  Ebay\Sell
+ * @description This complex type contains the request payload for the &lt;b&gt;createFromShippingQuote&lt;/b&gt; method.
+ * @package  Ebay\Sell\Logistics
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
+class CreateShipmentFromQuoteRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ContactAddress';
+    protected static $openAPIModelName = 'CreateShipmentFromQuoteRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,13 +60,12 @@ class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'address_line1' => 'string',
-        'address_line2' => 'string',
-        'city' => 'string',
-        'country_code' => 'string',
-        'county' => 'string',
-        'postal_code' => 'string',
-        'state_or_province' => 'string'
+        'additional_options' => '\Ebay\Sell\Logistics\Model\AdditionalOption[]',
+        'label_custom_message' => 'string',
+        'label_size' => 'string',
+        'rate_id' => 'string',
+        'return_to' => '\Ebay\Sell\Logistics\Model\Contact',
+        'shipping_quote_id' => 'string'
     ];
 
     /**
@@ -77,13 +76,12 @@ class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'address_line1' => null,
-        'address_line2' => null,
-        'city' => null,
-        'country_code' => null,
-        'county' => null,
-        'postal_code' => null,
-        'state_or_province' => null
+        'additional_options' => null,
+        'label_custom_message' => null,
+        'label_size' => null,
+        'rate_id' => null,
+        'return_to' => null,
+        'shipping_quote_id' => null
     ];
 
     /**
@@ -113,13 +111,12 @@ class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'address_line1' => 'addressLine1',
-        'address_line2' => 'addressLine2',
-        'city' => 'city',
-        'country_code' => 'countryCode',
-        'county' => 'county',
-        'postal_code' => 'postalCode',
-        'state_or_province' => 'stateOrProvince'
+        'additional_options' => 'additionalOptions',
+        'label_custom_message' => 'labelCustomMessage',
+        'label_size' => 'labelSize',
+        'rate_id' => 'rateId',
+        'return_to' => 'returnTo',
+        'shipping_quote_id' => 'shippingQuoteId'
     ];
 
     /**
@@ -128,13 +125,12 @@ class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'address_line1' => 'setAddressLine1',
-        'address_line2' => 'setAddressLine2',
-        'city' => 'setCity',
-        'country_code' => 'setCountryCode',
-        'county' => 'setCounty',
-        'postal_code' => 'setPostalCode',
-        'state_or_province' => 'setStateOrProvince'
+        'additional_options' => 'setAdditionalOptions',
+        'label_custom_message' => 'setLabelCustomMessage',
+        'label_size' => 'setLabelSize',
+        'rate_id' => 'setRateId',
+        'return_to' => 'setReturnTo',
+        'shipping_quote_id' => 'setShippingQuoteId'
     ];
 
     /**
@@ -143,13 +139,12 @@ class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'address_line1' => 'getAddressLine1',
-        'address_line2' => 'getAddressLine2',
-        'city' => 'getCity',
-        'country_code' => 'getCountryCode',
-        'county' => 'getCounty',
-        'postal_code' => 'getPostalCode',
-        'state_or_province' => 'getStateOrProvince'
+        'additional_options' => 'getAdditionalOptions',
+        'label_custom_message' => 'getLabelCustomMessage',
+        'label_size' => 'getLabelSize',
+        'rate_id' => 'getRateId',
+        'return_to' => 'getReturnTo',
+        'shipping_quote_id' => 'getShippingQuoteId'
     ];
 
     /**
@@ -209,13 +204,12 @@ class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['address_line1'] = isset($data['address_line1']) ? $data['address_line1'] : null;
-        $this->container['address_line2'] = isset($data['address_line2']) ? $data['address_line2'] : null;
-        $this->container['city'] = isset($data['city']) ? $data['city'] : null;
-        $this->container['country_code'] = isset($data['country_code']) ? $data['country_code'] : null;
-        $this->container['county'] = isset($data['county']) ? $data['county'] : null;
-        $this->container['postal_code'] = isset($data['postal_code']) ? $data['postal_code'] : null;
-        $this->container['state_or_province'] = isset($data['state_or_province']) ? $data['state_or_province'] : null;
+        $this->container['additional_options'] = $data['additional_options'] ?? null;
+        $this->container['label_custom_message'] = $data['label_custom_message'] ?? null;
+        $this->container['label_size'] = $data['label_size'] ?? null;
+        $this->container['rate_id'] = $data['rate_id'] ?? null;
+        $this->container['return_to'] = $data['return_to'] ?? null;
+        $this->container['shipping_quote_id'] = $data['shipping_quote_id'] ?? null;
     }
 
     /**
@@ -243,169 +237,145 @@ class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets address_line1
+     * Gets additional_options
      *
-     * @return string|null
+     * @return \Ebay\Sell\Logistics\Model\AdditionalOption[]|null
      */
-    public function getAddressLine1()
+    public function getAdditionalOptions()
     {
-        return $this->container['address_line1'];
+        return $this->container['additional_options'];
     }
 
     /**
-     * Sets address_line1
+     * Sets additional_options
      *
-     * @param string|null $address_line1 The first line of the street address.
+     * @param \Ebay\Sell\Logistics\Model\AdditionalOption[]|null $additional_options Supply a list of one or more shipping options that the seller wants to purchase for this shipment. The baseShippingCost field that's associated with the selected shipping rate is the cost of the base service offered in the rate. In addition to the base service, sellers can add additional shipping services to the base service. Shipping options include things such as shipping insurance or a recipient's signature upon delivery. The cost of any added services is summed with the base shipping cost to determine the final cost for the shipment. All options added to the shipment must be chosen from the set of shipping options offered with the selected rate.
      *
      * @return self
      */
-    public function setAddressLine1($address_line1)
+    public function setAdditionalOptions($additional_options)
     {
-        $this->container['address_line1'] = $address_line1;
+        $this->container['additional_options'] = $additional_options;
 
         return $this;
     }
 
     /**
-     * Gets address_line2
+     * Gets label_custom_message
      *
      * @return string|null
      */
-    public function getAddressLine2()
+    public function getLabelCustomMessage()
     {
-        return $this->container['address_line2'];
+        return $this->container['label_custom_message'];
     }
 
     /**
-     * Sets address_line2
+     * Sets label_custom_message
      *
-     * @param string|null $address_line2 The second line of the street address. Use this field for additional address information, such as a suite or apartment number.
+     * @param string|null $label_custom_message Optional text to be printed on the shipping label if the selected shipping carrier supports custom messages on their labels.
      *
      * @return self
      */
-    public function setAddressLine2($address_line2)
+    public function setLabelCustomMessage($label_custom_message)
     {
-        $this->container['address_line2'] = $address_line2;
+        $this->container['label_custom_message'] = $label_custom_message;
 
         return $this;
     }
 
     /**
-     * Gets city
+     * Gets label_size
      *
      * @return string|null
      */
-    public function getCity()
+    public function getLabelSize()
     {
-        return $this->container['city'];
+        return $this->container['label_size'];
     }
 
     /**
-     * Sets city
+     * Sets label_size
      *
-     * @param string|null $city The city in which the address is located.
+     * @param string|null $label_size The seller's desired label size. Any supplied value is applied only if the shipping carrier supports multiple label sizes, otherwise the carrier's default label size is used. 4&quot;x6&quot;
      *
      * @return self
      */
-    public function setCity($city)
+    public function setLabelSize($label_size)
     {
-        $this->container['city'] = $city;
+        $this->container['label_size'] = $label_size;
 
         return $this;
     }
 
     /**
-     * Gets country_code
+     * Gets rate_id
      *
      * @return string|null
      */
-    public function getCountryCode()
+    public function getRateId()
     {
-        return $this->container['country_code'];
+        return $this->container['rate_id'];
     }
 
     /**
-     * Sets country_code
+     * Sets rate_id
      *
-     * @param string|null $country_code The country of the address, represented as two-letter ISO 3166 country code. For example, US represents the United States and DE represents Germany. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/logistics/types/bas:CountryCodeEnum'>eBay API documentation</a>
+     * @param string|null $rate_id The eBay-assigned ID of the shipping rate that the seller selected for the shipment. This value is generated by a call to createShippingQuote and is returned in the rates.rateId field.
      *
      * @return self
      */
-    public function setCountryCode($country_code)
+    public function setRateId($rate_id)
     {
-        $this->container['country_code'] = $country_code;
+        $this->container['rate_id'] = $rate_id;
 
         return $this;
     }
 
     /**
-     * Gets county
+     * Gets return_to
      *
-     * @return string|null
+     * @return \Ebay\Sell\Logistics\Model\Contact|null
      */
-    public function getCounty()
+    public function getReturnTo()
     {
-        return $this->container['county'];
+        return $this->container['return_to'];
     }
 
     /**
-     * Sets county
+     * Sets return_to
      *
-     * @param string|null $county The county (not country) in which the address is located. Counties typically contain multiple cities or towns.
+     * @param \Ebay\Sell\Logistics\Model\Contact|null $return_to return_to
      *
      * @return self
      */
-    public function setCounty($county)
+    public function setReturnTo($return_to)
     {
-        $this->container['county'] = $county;
+        $this->container['return_to'] = $return_to;
 
         return $this;
     }
 
     /**
-     * Gets postal_code
+     * Gets shipping_quote_id
      *
      * @return string|null
      */
-    public function getPostalCode()
+    public function getShippingQuoteId()
     {
-        return $this->container['postal_code'];
+        return $this->container['shipping_quote_id'];
     }
 
     /**
-     * Sets postal_code
+     * Sets shipping_quote_id
      *
-     * @param string|null $postal_code The postal code of the address.
+     * @param string|null $shipping_quote_id The unique eBay-assigned ID of the shipping quote that was generated by a call to createShippingQuote.
      *
      * @return self
      */
-    public function setPostalCode($postal_code)
+    public function setShippingQuoteId($shipping_quote_id)
     {
-        $this->container['postal_code'] = $postal_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets state_or_province
-     *
-     * @return string|null
-     */
-    public function getStateOrProvince()
-    {
-        return $this->container['state_or_province'];
-    }
-
-    /**
-     * Sets state_or_province
-     *
-     * @param string|null $state_or_province The state or province in which the address is located. States and provinces often contain multiple counties.
-     *
-     * @return self
-     */
-    public function setStateOrProvince($state_or_province)
-    {
-        $this->container['state_or_province'] = $state_or_province;
+        $this->container['shipping_quote_id'] = $shipping_quote_id;
 
         return $this;
     }
@@ -430,7 +400,7 @@ class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**

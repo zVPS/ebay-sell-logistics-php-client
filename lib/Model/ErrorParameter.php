@@ -1,11 +1,11 @@
 <?php
 /**
- * ShippingQuoteRequest
+ * ErrorParameter
  *
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Logistics
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -29,30 +29,30 @@
 namespace Ebay\Sell\Logistics\Model;
 
 use \ArrayAccess;
-use \Ebay\Sell\ObjectSerializer;
+use \Ebay\Sell\Logistics\ObjectSerializer;
 
 /**
- * ShippingQuoteRequest Class Doc Comment
+ * ErrorParameter Class Doc Comment
  *
  * @category Class
- * @description This complex type defines the request body for &lt;b&gt;createShippingQuote&lt;/b&gt;. Sellers &lt;i&gt;request a quote&lt;/i&gt; for a shipment by defining the \&quot;To\&quot; and \&quot;From\&quot; addresses for the package, plus the package&#39;s size.  &lt;br&gt;&lt;br&gt;Carriers respond by offering up a \&quot;rate\&quot; for the service of theirs that best fits seller&#39;s needs.
- * @package  Ebay\Sell
+ * @description Container for an error parameter.
+ * @package  Ebay\Sell\Logistics
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ShippingQuoteRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class ErrorParameter implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ShippingQuoteRequest';
+    protected static $openAPIModelName = 'ErrorParameter';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,10 +60,8 @@ class ShippingQuoteRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'orders' => '\Ebay\Sell\Logistics\Model\Order[]',
-        'package_specification' => '\Ebay\Sell\Logistics\Model\PackageSpecification',
-        'ship_from' => '\Ebay\Sell\Logistics\Model\Contact',
-        'ship_to' => '\Ebay\Sell\Logistics\Model\Contact'
+        'name' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -74,10 +72,8 @@ class ShippingQuoteRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'orders' => null,
-        'package_specification' => null,
-        'ship_from' => null,
-        'ship_to' => null
+        'name' => null,
+        'value' => null
     ];
 
     /**
@@ -107,10 +103,8 @@ class ShippingQuoteRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'orders' => 'orders',
-        'package_specification' => 'packageSpecification',
-        'ship_from' => 'shipFrom',
-        'ship_to' => 'shipTo'
+        'name' => 'name',
+        'value' => 'value'
     ];
 
     /**
@@ -119,10 +113,8 @@ class ShippingQuoteRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'orders' => 'setOrders',
-        'package_specification' => 'setPackageSpecification',
-        'ship_from' => 'setShipFrom',
-        'ship_to' => 'setShipTo'
+        'name' => 'setName',
+        'value' => 'setValue'
     ];
 
     /**
@@ -131,10 +123,8 @@ class ShippingQuoteRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'orders' => 'getOrders',
-        'package_specification' => 'getPackageSpecification',
-        'ship_from' => 'getShipFrom',
-        'ship_to' => 'getShipTo'
+        'name' => 'getName',
+        'value' => 'getValue'
     ];
 
     /**
@@ -194,10 +184,8 @@ class ShippingQuoteRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(array $data = null)
     {
-        $this->container['orders'] = isset($data['orders']) ? $data['orders'] : null;
-        $this->container['package_specification'] = isset($data['package_specification']) ? $data['package_specification'] : null;
-        $this->container['ship_from'] = isset($data['ship_from']) ? $data['ship_from'] : null;
-        $this->container['ship_to'] = isset($data['ship_to']) ? $data['ship_to'] : null;
+        $this->container['name'] = $data['name'] ?? null;
+        $this->container['value'] = $data['value'] ?? null;
     }
 
     /**
@@ -225,97 +213,49 @@ class ShippingQuoteRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
 
     /**
-     * Gets orders
+     * Gets name
      *
-     * @return \Ebay\Sell\Logistics\Model\Order[]|null
+     * @return string|null
      */
-    public function getOrders()
+    public function getName()
     {
-        return $this->container['orders'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets orders
+     * Sets name
      *
-     * @param \Ebay\Sell\Logistics\Model\Order[]|null $orders A seller-defined list that contains information about the orders in the package. This allows sellers to include information about the line items in the package with the shipment information. A package can contain any number of line items from one or more orders, providing they all ship in the same package. Maximum list size: 10
+     * @param string|null $name Name of the entity that threw the error.
      *
      * @return self
      */
-    public function setOrders($orders)
+    public function setName($name)
     {
-        $this->container['orders'] = $orders;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets package_specification
+     * Gets value
      *
-     * @return \Ebay\Sell\Logistics\Model\PackageSpecification|null
+     * @return string|null
      */
-    public function getPackageSpecification()
+    public function getValue()
     {
-        return $this->container['package_specification'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets package_specification
+     * Sets value
      *
-     * @param \Ebay\Sell\Logistics\Model\PackageSpecification|null $package_specification package_specification
+     * @param string|null $value A description of the error.
      *
      * @return self
      */
-    public function setPackageSpecification($package_specification)
+    public function setValue($value)
     {
-        $this->container['package_specification'] = $package_specification;
-
-        return $this;
-    }
-
-    /**
-     * Gets ship_from
-     *
-     * @return \Ebay\Sell\Logistics\Model\Contact|null
-     */
-    public function getShipFrom()
-    {
-        return $this->container['ship_from'];
-    }
-
-    /**
-     * Sets ship_from
-     *
-     * @param \Ebay\Sell\Logistics\Model\Contact|null $ship_from ship_from
-     *
-     * @return self
-     */
-    public function setShipFrom($ship_from)
-    {
-        $this->container['ship_from'] = $ship_from;
-
-        return $this;
-    }
-
-    /**
-     * Gets ship_to
-     *
-     * @return \Ebay\Sell\Logistics\Model\Contact|null
-     */
-    public function getShipTo()
-    {
-        return $this->container['ship_to'];
-    }
-
-    /**
-     * Sets ship_to
-     *
-     * @param \Ebay\Sell\Logistics\Model\Contact|null $ship_to ship_to
-     *
-     * @return self
-     */
-    public function setShipTo($ship_to)
-    {
-        $this->container['ship_to'] = $ship_to;
+        $this->container['value'] = $value;
 
         return $this;
     }
@@ -340,7 +280,7 @@ class ShippingQuoteRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**

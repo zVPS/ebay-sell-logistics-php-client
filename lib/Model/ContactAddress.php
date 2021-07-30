@@ -1,11 +1,11 @@
 <?php
 /**
- * CreateShipmentFromQuoteRequest
+ * ContactAddress
  *
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Logistics
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -29,30 +29,30 @@
 namespace Ebay\Sell\Logistics\Model;
 
 use \ArrayAccess;
-use \Ebay\Sell\ObjectSerializer;
+use \Ebay\Sell\Logistics\ObjectSerializer;
 
 /**
- * CreateShipmentFromQuoteRequest Class Doc Comment
+ * ContactAddress Class Doc Comment
  *
  * @category Class
- * @description This complex type contains the request payload for the &lt;b&gt;createFromShippingQuote&lt;/b&gt; method.
- * @package  Ebay\Sell
+ * @description This complex type specifies the details of a geographical address.
+ * @package  Ebay\Sell\Logistics
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CreateShipmentFromQuoteRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CreateShipmentFromQuoteRequest';
+    protected static $openAPIModelName = 'ContactAddress';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,12 +60,13 @@ class CreateShipmentFromQuoteRequest implements ModelInterface, ArrayAccess, \Js
       * @var string[]
       */
     protected static $openAPITypes = [
-        'additional_options' => '\Ebay\Sell\Logistics\Model\AdditionalOption[]',
-        'label_custom_message' => 'string',
-        'label_size' => 'string',
-        'rate_id' => 'string',
-        'return_to' => '\Ebay\Sell\Logistics\Model\Contact',
-        'shipping_quote_id' => 'string'
+        'address_line1' => 'string',
+        'address_line2' => 'string',
+        'city' => 'string',
+        'country_code' => 'string',
+        'county' => 'string',
+        'postal_code' => 'string',
+        'state_or_province' => 'string'
     ];
 
     /**
@@ -76,12 +77,13 @@ class CreateShipmentFromQuoteRequest implements ModelInterface, ArrayAccess, \Js
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'additional_options' => null,
-        'label_custom_message' => null,
-        'label_size' => null,
-        'rate_id' => null,
-        'return_to' => null,
-        'shipping_quote_id' => null
+        'address_line1' => null,
+        'address_line2' => null,
+        'city' => null,
+        'country_code' => null,
+        'county' => null,
+        'postal_code' => null,
+        'state_or_province' => null
     ];
 
     /**
@@ -111,12 +113,13 @@ class CreateShipmentFromQuoteRequest implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $attributeMap = [
-        'additional_options' => 'additionalOptions',
-        'label_custom_message' => 'labelCustomMessage',
-        'label_size' => 'labelSize',
-        'rate_id' => 'rateId',
-        'return_to' => 'returnTo',
-        'shipping_quote_id' => 'shippingQuoteId'
+        'address_line1' => 'addressLine1',
+        'address_line2' => 'addressLine2',
+        'city' => 'city',
+        'country_code' => 'countryCode',
+        'county' => 'county',
+        'postal_code' => 'postalCode',
+        'state_or_province' => 'stateOrProvince'
     ];
 
     /**
@@ -125,12 +128,13 @@ class CreateShipmentFromQuoteRequest implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $setters = [
-        'additional_options' => 'setAdditionalOptions',
-        'label_custom_message' => 'setLabelCustomMessage',
-        'label_size' => 'setLabelSize',
-        'rate_id' => 'setRateId',
-        'return_to' => 'setReturnTo',
-        'shipping_quote_id' => 'setShippingQuoteId'
+        'address_line1' => 'setAddressLine1',
+        'address_line2' => 'setAddressLine2',
+        'city' => 'setCity',
+        'country_code' => 'setCountryCode',
+        'county' => 'setCounty',
+        'postal_code' => 'setPostalCode',
+        'state_or_province' => 'setStateOrProvince'
     ];
 
     /**
@@ -139,12 +143,13 @@ class CreateShipmentFromQuoteRequest implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $getters = [
-        'additional_options' => 'getAdditionalOptions',
-        'label_custom_message' => 'getLabelCustomMessage',
-        'label_size' => 'getLabelSize',
-        'rate_id' => 'getRateId',
-        'return_to' => 'getReturnTo',
-        'shipping_quote_id' => 'getShippingQuoteId'
+        'address_line1' => 'getAddressLine1',
+        'address_line2' => 'getAddressLine2',
+        'city' => 'getCity',
+        'country_code' => 'getCountryCode',
+        'county' => 'getCounty',
+        'postal_code' => 'getPostalCode',
+        'state_or_province' => 'getStateOrProvince'
     ];
 
     /**
@@ -204,12 +209,13 @@ class CreateShipmentFromQuoteRequest implements ModelInterface, ArrayAccess, \Js
      */
     public function __construct(array $data = null)
     {
-        $this->container['additional_options'] = isset($data['additional_options']) ? $data['additional_options'] : null;
-        $this->container['label_custom_message'] = isset($data['label_custom_message']) ? $data['label_custom_message'] : null;
-        $this->container['label_size'] = isset($data['label_size']) ? $data['label_size'] : null;
-        $this->container['rate_id'] = isset($data['rate_id']) ? $data['rate_id'] : null;
-        $this->container['return_to'] = isset($data['return_to']) ? $data['return_to'] : null;
-        $this->container['shipping_quote_id'] = isset($data['shipping_quote_id']) ? $data['shipping_quote_id'] : null;
+        $this->container['address_line1'] = $data['address_line1'] ?? null;
+        $this->container['address_line2'] = $data['address_line2'] ?? null;
+        $this->container['city'] = $data['city'] ?? null;
+        $this->container['country_code'] = $data['country_code'] ?? null;
+        $this->container['county'] = $data['county'] ?? null;
+        $this->container['postal_code'] = $data['postal_code'] ?? null;
+        $this->container['state_or_province'] = $data['state_or_province'] ?? null;
     }
 
     /**
@@ -237,145 +243,169 @@ class CreateShipmentFromQuoteRequest implements ModelInterface, ArrayAccess, \Js
 
 
     /**
-     * Gets additional_options
-     *
-     * @return \Ebay\Sell\Logistics\Model\AdditionalOption[]|null
-     */
-    public function getAdditionalOptions()
-    {
-        return $this->container['additional_options'];
-    }
-
-    /**
-     * Sets additional_options
-     *
-     * @param \Ebay\Sell\Logistics\Model\AdditionalOption[]|null $additional_options Supply a list of one or more shipping options that the seller wants to purchase for this shipment. The baseShippingCost field that's associated with the selected shipping rate is the cost of the base service offered in the rate. In addition to the base service, sellers can add additional shipping services to the base service. Shipping options include things such as shipping insurance or a recipient's signature upon delivery. The cost of any added services is summed with the base shipping cost to determine the final cost for the shipment. All options added to the shipment must be chosen from the set of shipping options offered with the selected rate.
-     *
-     * @return self
-     */
-    public function setAdditionalOptions($additional_options)
-    {
-        $this->container['additional_options'] = $additional_options;
-
-        return $this;
-    }
-
-    /**
-     * Gets label_custom_message
+     * Gets address_line1
      *
      * @return string|null
      */
-    public function getLabelCustomMessage()
+    public function getAddressLine1()
     {
-        return $this->container['label_custom_message'];
+        return $this->container['address_line1'];
     }
 
     /**
-     * Sets label_custom_message
+     * Sets address_line1
      *
-     * @param string|null $label_custom_message Optional text to be printed on the shipping label if the selected shipping carrier supports custom messages on their labels.
+     * @param string|null $address_line1 The first line of the street address.
      *
      * @return self
      */
-    public function setLabelCustomMessage($label_custom_message)
+    public function setAddressLine1($address_line1)
     {
-        $this->container['label_custom_message'] = $label_custom_message;
+        $this->container['address_line1'] = $address_line1;
 
         return $this;
     }
 
     /**
-     * Gets label_size
+     * Gets address_line2
      *
      * @return string|null
      */
-    public function getLabelSize()
+    public function getAddressLine2()
     {
-        return $this->container['label_size'];
+        return $this->container['address_line2'];
     }
 
     /**
-     * Sets label_size
+     * Sets address_line2
      *
-     * @param string|null $label_size The seller's desired label size. Any supplied value is applied only if the shipping carrier supports multiple label sizes, otherwise the carrier's default label size is used. 4&quot;x6&quot;
+     * @param string|null $address_line2 The second line of the street address. Use this field for additional address information, such as a suite or apartment number.
      *
      * @return self
      */
-    public function setLabelSize($label_size)
+    public function setAddressLine2($address_line2)
     {
-        $this->container['label_size'] = $label_size;
+        $this->container['address_line2'] = $address_line2;
 
         return $this;
     }
 
     /**
-     * Gets rate_id
+     * Gets city
      *
      * @return string|null
      */
-    public function getRateId()
+    public function getCity()
     {
-        return $this->container['rate_id'];
+        return $this->container['city'];
     }
 
     /**
-     * Sets rate_id
+     * Sets city
      *
-     * @param string|null $rate_id The eBay-assigned ID of the shipping rate that the seller selected for the shipment. This value is generated by a call to createShippingQuote and is returned in the rates.rateId field.
+     * @param string|null $city The city in which the address is located.
      *
      * @return self
      */
-    public function setRateId($rate_id)
+    public function setCity($city)
     {
-        $this->container['rate_id'] = $rate_id;
+        $this->container['city'] = $city;
 
         return $this;
     }
 
     /**
-     * Gets return_to
-     *
-     * @return \Ebay\Sell\Logistics\Model\Contact|null
-     */
-    public function getReturnTo()
-    {
-        return $this->container['return_to'];
-    }
-
-    /**
-     * Sets return_to
-     *
-     * @param \Ebay\Sell\Logistics\Model\Contact|null $return_to return_to
-     *
-     * @return self
-     */
-    public function setReturnTo($return_to)
-    {
-        $this->container['return_to'] = $return_to;
-
-        return $this;
-    }
-
-    /**
-     * Gets shipping_quote_id
+     * Gets country_code
      *
      * @return string|null
      */
-    public function getShippingQuoteId()
+    public function getCountryCode()
     {
-        return $this->container['shipping_quote_id'];
+        return $this->container['country_code'];
     }
 
     /**
-     * Sets shipping_quote_id
+     * Sets country_code
      *
-     * @param string|null $shipping_quote_id The unique eBay-assigned ID of the shipping quote that was generated by a call to createShippingQuote.
+     * @param string|null $country_code The country of the address, represented as two-letter ISO 3166 country code. For example, US represents the United States and DE represents Germany. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/logistics/types/bas:CountryCodeEnum'>eBay API documentation</a>
      *
      * @return self
      */
-    public function setShippingQuoteId($shipping_quote_id)
+    public function setCountryCode($country_code)
     {
-        $this->container['shipping_quote_id'] = $shipping_quote_id;
+        $this->container['country_code'] = $country_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets county
+     *
+     * @return string|null
+     */
+    public function getCounty()
+    {
+        return $this->container['county'];
+    }
+
+    /**
+     * Sets county
+     *
+     * @param string|null $county The county (not country) in which the address is located. Counties typically contain multiple cities or towns.
+     *
+     * @return self
+     */
+    public function setCounty($county)
+    {
+        $this->container['county'] = $county;
+
+        return $this;
+    }
+
+    /**
+     * Gets postal_code
+     *
+     * @return string|null
+     */
+    public function getPostalCode()
+    {
+        return $this->container['postal_code'];
+    }
+
+    /**
+     * Sets postal_code
+     *
+     * @param string|null $postal_code The postal code of the address.
+     *
+     * @return self
+     */
+    public function setPostalCode($postal_code)
+    {
+        $this->container['postal_code'] = $postal_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets state_or_province
+     *
+     * @return string|null
+     */
+    public function getStateOrProvince()
+    {
+        return $this->container['state_or_province'];
+    }
+
+    /**
+     * Sets state_or_province
+     *
+     * @param string|null $state_or_province The state or province in which the address is located. States and provinces often contain multiple counties.
+     *
+     * @return self
+     */
+    public function setStateOrProvince($state_or_province)
+    {
+        $this->container['state_or_province'] = $state_or_province;
 
         return $this;
     }
@@ -400,7 +430,7 @@ class CreateShipmentFromQuoteRequest implements ModelInterface, ArrayAccess, \Js
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**

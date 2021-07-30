@@ -1,11 +1,11 @@
 <?php
 /**
- * Contact
+ * AdditionalOption
  *
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Logistics
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -29,30 +29,30 @@
 namespace Ebay\Sell\Logistics\Model;
 
 use \ArrayAccess;
-use \Ebay\Sell\ObjectSerializer;
+use \Ebay\Sell\Logistics\ObjectSerializer;
 
 /**
- * Contact Class Doc Comment
+ * AdditionalOption Class Doc Comment
  *
  * @category Class
- * @description This complex type contains contact information for an individual buyer or seller.
- * @package  Ebay\Sell
+ * @description This complex type contains information about a shipping option that can be purchased in addition to the base shipping cost of a recommended rate. Additional options for each rate are defined, named, and offered by the selected shipping carrier. Examples include shipping insurance or the requirement for a recipient signature.
+ * @package  Ebay\Sell\Logistics
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Contact implements ModelInterface, ArrayAccess, \JsonSerializable
+class AdditionalOption implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Contact';
+    protected static $openAPIModelName = 'AdditionalOption';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,10 +60,8 @@ class Contact implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'company_name' => 'string',
-        'contact_address' => '\Ebay\Sell\Logistics\Model\ContactAddress',
-        'full_name' => 'string',
-        'primary_phone' => '\Ebay\Sell\Logistics\Model\PhoneNumber'
+        'additional_cost' => '\Ebay\Sell\Logistics\Model\Amount',
+        'option_type' => 'string'
     ];
 
     /**
@@ -74,10 +72,8 @@ class Contact implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'company_name' => null,
-        'contact_address' => null,
-        'full_name' => null,
-        'primary_phone' => null
+        'additional_cost' => null,
+        'option_type' => null
     ];
 
     /**
@@ -107,10 +103,8 @@ class Contact implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'company_name' => 'companyName',
-        'contact_address' => 'contactAddress',
-        'full_name' => 'fullName',
-        'primary_phone' => 'primaryPhone'
+        'additional_cost' => 'additionalCost',
+        'option_type' => 'optionType'
     ];
 
     /**
@@ -119,10 +113,8 @@ class Contact implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'company_name' => 'setCompanyName',
-        'contact_address' => 'setContactAddress',
-        'full_name' => 'setFullName',
-        'primary_phone' => 'setPrimaryPhone'
+        'additional_cost' => 'setAdditionalCost',
+        'option_type' => 'setOptionType'
     ];
 
     /**
@@ -131,10 +123,8 @@ class Contact implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'company_name' => 'getCompanyName',
-        'contact_address' => 'getContactAddress',
-        'full_name' => 'getFullName',
-        'primary_phone' => 'getPrimaryPhone'
+        'additional_cost' => 'getAdditionalCost',
+        'option_type' => 'getOptionType'
     ];
 
     /**
@@ -194,10 +184,8 @@ class Contact implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['company_name'] = isset($data['company_name']) ? $data['company_name'] : null;
-        $this->container['contact_address'] = isset($data['contact_address']) ? $data['contact_address'] : null;
-        $this->container['full_name'] = isset($data['full_name']) ? $data['full_name'] : null;
-        $this->container['primary_phone'] = isset($data['primary_phone']) ? $data['primary_phone'] : null;
+        $this->container['additional_cost'] = $data['additional_cost'] ?? null;
+        $this->container['option_type'] = $data['option_type'] ?? null;
     }
 
     /**
@@ -225,97 +213,49 @@ class Contact implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets company_name
+     * Gets additional_cost
+     *
+     * @return \Ebay\Sell\Logistics\Model\Amount|null
+     */
+    public function getAdditionalCost()
+    {
+        return $this->container['additional_cost'];
+    }
+
+    /**
+     * Sets additional_cost
+     *
+     * @param \Ebay\Sell\Logistics\Model\Amount|null $additional_cost additional_cost
+     *
+     * @return self
+     */
+    public function setAdditionalCost($additional_cost)
+    {
+        $this->container['additional_cost'] = $additional_cost;
+
+        return $this;
+    }
+
+    /**
+     * Gets option_type
      *
      * @return string|null
      */
-    public function getCompanyName()
+    public function getOptionType()
     {
-        return $this->container['company_name'];
+        return $this->container['option_type'];
     }
 
     /**
-     * Sets company_name
+     * Sets option_type
      *
-     * @param string|null $company_name The company name with which the contact is associated.
+     * @param string|null $option_type The name of a shipping option that can be purchased in addition to the base shipping cost of this rate. The value supplied in this field must match exactly the option name as supplied by the selected rate.
      *
      * @return self
      */
-    public function setCompanyName($company_name)
+    public function setOptionType($option_type)
     {
-        $this->container['company_name'] = $company_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets contact_address
-     *
-     * @return \Ebay\Sell\Logistics\Model\ContactAddress|null
-     */
-    public function getContactAddress()
-    {
-        return $this->container['contact_address'];
-    }
-
-    /**
-     * Sets contact_address
-     *
-     * @param \Ebay\Sell\Logistics\Model\ContactAddress|null $contact_address contact_address
-     *
-     * @return self
-     */
-    public function setContactAddress($contact_address)
-    {
-        $this->container['contact_address'] = $contact_address;
-
-        return $this;
-    }
-
-    /**
-     * Gets full_name
-     *
-     * @return string|null
-     */
-    public function getFullName()
-    {
-        return $this->container['full_name'];
-    }
-
-    /**
-     * Sets full_name
-     *
-     * @param string|null $full_name The contact's full name.
-     *
-     * @return self
-     */
-    public function setFullName($full_name)
-    {
-        $this->container['full_name'] = $full_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets primary_phone
-     *
-     * @return \Ebay\Sell\Logistics\Model\PhoneNumber|null
-     */
-    public function getPrimaryPhone()
-    {
-        return $this->container['primary_phone'];
-    }
-
-    /**
-     * Sets primary_phone
-     *
-     * @param \Ebay\Sell\Logistics\Model\PhoneNumber|null $primary_phone primary_phone
-     *
-     * @return self
-     */
-    public function setPrimaryPhone($primary_phone)
-    {
-        $this->container['primary_phone'] = $primary_phone;
+        $this->container['option_type'] = $option_type;
 
         return $this;
     }
@@ -340,7 +280,7 @@ class Contact implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**

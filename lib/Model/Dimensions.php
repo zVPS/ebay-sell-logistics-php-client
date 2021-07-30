@@ -1,11 +1,11 @@
 <?php
 /**
- * ShipmentCancellation
+ * Dimensions
  *
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Logistics
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -29,30 +29,30 @@
 namespace Ebay\Sell\Logistics\Model;
 
 use \ArrayAccess;
-use \Ebay\Sell\ObjectSerializer;
+use \Ebay\Sell\Logistics\ObjectSerializer;
 
 /**
- * ShipmentCancellation Class Doc Comment
+ * Dimensions Class Doc Comment
  *
  * @category Class
- * @description This type defines a shipment cancellation by the date and time the cancellation request was made and the current status of the request.
- * @package  Ebay\Sell
+ * @description This complex type defines the dimensions of a package to be shipped.
+ * @package  Ebay\Sell\Logistics
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ShipmentCancellation implements ModelInterface, ArrayAccess, \JsonSerializable
+class Dimensions implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ShipmentCancellation';
+    protected static $openAPIModelName = 'Dimensions';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,8 +60,10 @@ class ShipmentCancellation implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'cancellation_requested_date' => 'string',
-        'cancellation_status' => 'string'
+        'height' => 'string',
+        'length' => 'string',
+        'unit' => 'string',
+        'width' => 'string'
     ];
 
     /**
@@ -72,8 +74,10 @@ class ShipmentCancellation implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'cancellation_requested_date' => null,
-        'cancellation_status' => null
+        'height' => null,
+        'length' => null,
+        'unit' => null,
+        'width' => null
     ];
 
     /**
@@ -103,8 +107,10 @@ class ShipmentCancellation implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'cancellation_requested_date' => 'cancellationRequestedDate',
-        'cancellation_status' => 'cancellationStatus'
+        'height' => 'height',
+        'length' => 'length',
+        'unit' => 'unit',
+        'width' => 'width'
     ];
 
     /**
@@ -113,8 +119,10 @@ class ShipmentCancellation implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'cancellation_requested_date' => 'setCancellationRequestedDate',
-        'cancellation_status' => 'setCancellationStatus'
+        'height' => 'setHeight',
+        'length' => 'setLength',
+        'unit' => 'setUnit',
+        'width' => 'setWidth'
     ];
 
     /**
@@ -123,8 +131,10 @@ class ShipmentCancellation implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'cancellation_requested_date' => 'getCancellationRequestedDate',
-        'cancellation_status' => 'getCancellationStatus'
+        'height' => 'getHeight',
+        'length' => 'getLength',
+        'unit' => 'getUnit',
+        'width' => 'getWidth'
     ];
 
     /**
@@ -184,8 +194,10 @@ class ShipmentCancellation implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(array $data = null)
     {
-        $this->container['cancellation_requested_date'] = isset($data['cancellation_requested_date']) ? $data['cancellation_requested_date'] : null;
-        $this->container['cancellation_status'] = isset($data['cancellation_status']) ? $data['cancellation_status'] : null;
+        $this->container['height'] = $data['height'] ?? null;
+        $this->container['length'] = $data['length'] ?? null;
+        $this->container['unit'] = $data['unit'] ?? null;
+        $this->container['width'] = $data['width'] ?? null;
     }
 
     /**
@@ -213,49 +225,97 @@ class ShipmentCancellation implements ModelInterface, ArrayAccess, \JsonSerializ
 
 
     /**
-     * Gets cancellation_requested_date
+     * Gets height
      *
      * @return string|null
      */
-    public function getCancellationRequestedDate()
+    public function getHeight()
     {
-        return $this->container['cancellation_requested_date'];
+        return $this->container['height'];
     }
 
     /**
-     * Sets cancellation_requested_date
+     * Sets height
      *
-     * @param string|null $cancellation_requested_date The time and date the request was made to cancel the shipment, formatted as an ISO 8601 UTC string.
+     * @param string|null $height The numeric value of the height of the package.
      *
      * @return self
      */
-    public function setCancellationRequestedDate($cancellation_requested_date)
+    public function setHeight($height)
     {
-        $this->container['cancellation_requested_date'] = $cancellation_requested_date;
+        $this->container['height'] = $height;
 
         return $this;
     }
 
     /**
-     * Gets cancellation_status
+     * Gets length
      *
      * @return string|null
      */
-    public function getCancellationStatus()
+    public function getLength()
     {
-        return $this->container['cancellation_status'];
+        return $this->container['length'];
     }
 
     /**
-     * Sets cancellation_status
+     * Sets length
      *
-     * @param string|null $cancellation_status This enum specifies the current cancellation status of a shipment, if a cancellation request has been made. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/logistics/types/api:ShipmentCancellationStatusEnum'>eBay API documentation</a>
+     * @param string|null $length The numeric value of the length of the package.
      *
      * @return self
      */
-    public function setCancellationStatus($cancellation_status)
+    public function setLength($length)
     {
-        $this->container['cancellation_status'] = $cancellation_status;
+        $this->container['length'] = $length;
+
+        return $this;
+    }
+
+    /**
+     * Gets unit
+     *
+     * @return string|null
+     */
+    public function getUnit()
+    {
+        return $this->container['unit'];
+    }
+
+    /**
+     * Sets unit
+     *
+     * @param string|null $unit The unit of measure used to express the height, length, and width of the package. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/logistics/types/api:LengthUnitOfMeasureEnum'>eBay API documentation</a>
+     *
+     * @return self
+     */
+    public function setUnit($unit)
+    {
+        $this->container['unit'] = $unit;
+
+        return $this;
+    }
+
+    /**
+     * Gets width
+     *
+     * @return string|null
+     */
+    public function getWidth()
+    {
+        return $this->container['width'];
+    }
+
+    /**
+     * Sets width
+     *
+     * @param string|null $width The numeric value of the width of the package.
+     *
+     * @return self
+     */
+    public function setWidth($width)
+    {
+        $this->container['width'] = $width;
 
         return $this;
     }
@@ -280,7 +340,7 @@ class ShipmentCancellation implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**
